@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>纯爱枫若情的博客</title>
+  <subtitle>前端新手的小站</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://45.78.23.26/"/>
+  <updated>2017-03-07T05:22:12.379Z</updated>
+  <id>http://45.78.23.26/</id>
+  
+  <author>
+    <name>纯爱枫若情</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS属性选择器</title>
+    <link href="http://45.78.23.26//blog/2017/03/07/CSS%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.html"/>
+    <id>http://45.78.23.26//blog/2017/03/07/CSS属性选择器.html</id>
+    <published>2017-03-07T02:29:31.000Z</published>
+    <updated>2017-03-07T05:22:12.379Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常规属性选择器"><a href="#常规属性选择器" class="headerlink" title="常规属性选择器"></a>常规属性选择器</h2><h3 id="根据attribute通配"><a href="#根据attribute通配" class="headerlink" title="根据attribute通配"></a>根据attribute通配</h3><p>常规的属性选择器，采用 <code>element[attribute]</code> 方式，即可选中想要的元素，然后添加对应的css样式</p>
+<h3 id="根据具体的property选择"><a href="#根据具体的property选择" class="headerlink" title="根据具体的property选择"></a>根据具体的property选择</h3><p>根据具体的property选择，采用 <code>elements[attribute=property]</code> 方式，即选出对应元素上有相应属性值的元素，添加对应的css样式。</p>
+<p>采用这种模式的时候，如果一个attribute有多个property属性，那么就不会被匹配上</p>
+<h3 id="根据部分属性值选择"><a href="#根据部分属性值选择" class="headerlink" title="根据部分属性值选择"></a>根据部分属性值选择</h3><p>根据部分属性值选择，采用 <code>elements[attribute~=property]</code> 方式，这种方式和上一条 <strong>根据具体属性选择</strong> 方式很类似，只是在 <code>=</code> 前面加上了一个 <code>~</code> 符号。</p>
+<h4 id="属性名为英文"><a href="#属性名为英文" class="headerlink" title="属性名为英文"></a>属性名为英文</h4><p>采用这种匹配模式的时候，值得注意的一点是，它匹配的是英文中的单词模式，如下面的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">a[title~="zhihu"]&#123;</div><div class="line">	text-decoration: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"> <span class="comment">&lt;!-- 会被正确的匹配上，链接中的下划线被去掉 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.zhihu.com"</span> <span class="attr">title</span>=<span class="string">"zhihu html"</span>&gt;</span>点击进入知乎首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="属性名为中文"><a href="#属性名为中文" class="headerlink" title="属性名为中文"></a>属性名为中文</h4><p>但是如果attribute的property是中文写的，那么就不能够匹配的到，除非你加上空格，否则不能正确的匹配出来</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">a[title~="知乎"]&#123;</div><div class="line">	text-decoration: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"> <span class="comment">&lt;!-- 不会被正确的匹配上，链接中的下划线不会被去掉 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.zhihu.com"</span> <span class="attr">title</span>=<span class="string">"知乎网页"</span>&gt;</span>点击进入知乎首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="其他部分属性选择器"><a href="#其他部分属性选择器" class="headerlink" title="其他部分属性选择器"></a>其他部分属性选择器</h4><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[foo^=”bar”]</td>
+<td>选择foo属性值以“bar”开头的所有元素</td>
+</tr>
+<tr>
+<td>[foo$=”bar”]</td>
+<td>选择foo属性值以“bar”结尾的所有元素</td>
+</tr>
+<tr>
+<td>[foo*=”bar”]</td>
+<td>选择foo属性值中包含字符串“bar”的所有元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="特定属性选择器"><a href="#特定属性选择器" class="headerlink" title="特定属性选择器"></a>特定属性选择器</h2><p>这个特定属性选择器一般用于通配所有的元素中的一类元素，采用“*”选择所有元素，基本格式如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">*[lang|="en"]&#123;</div><div class="line">	color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"><span class="comment">&lt;!-- 能够匹配前三个，而后两个不会被选中 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">lang</span>=<span class="string">"en-us"</span>&gt;</span>Greetings!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">lang</span>=<span class="string">"en-au"</span>&gt;</span>G'day!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">lang</span>=<span class="string">"fr"</span>&gt;</span>Bonjour!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">lang</span>=<span class="string">"cy-en"</span>&gt;</span>Jrooana!<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这个属性和部分属性选择器的格式有点类似，但是这个选择器有点变态的地方是，它匹配的property不是英文单词，而是一个个字母，也就是说，如果你属性值采用了中文，也能轻松匹配了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      深入学习css属性选择器的笔记
+    
+    </summary>
+    
+      <category term="css" scheme="http://45.78.23.26/categories/css/"/>
+    
+    
+      <category term="笔记" scheme="http://45.78.23.26/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="css" scheme="http://45.78.23.26/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo常见命令令</title>
+    <link href="http://45.78.23.26//blog/2017/03/05/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E4%BB%A4.html"/>
+    <id>http://45.78.23.26//blog/2017/03/05/hexo常见命令令.html</id>
+    <published>2017-03-05T06:08:26.000Z</published>
+    <updated>2017-03-05T07:16:09.059Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="正文前的絮絮叨叨之言"><a href="#正文前的絮絮叨叨之言" class="headerlink" title="正文前的絮絮叨叨之言"></a>正文前的絮絮叨叨之言</h2><p>本人其实并不是一个很勤奋有毅力的人，之前很多曾信誓旦旦的说过要坚持下去的事情，最终大都不了了之了。回想起来，我这辈子，到现在为止，坚持最长时间的事情大概就是<em>做一名周杰伦的歌迷</em> 吧，而第二长的事情大概就是谈恋爱吧。但是其实这也并非是一件羞于开口向外人道的事情吧，毕竟，我本来就是一名普通的再普通不过的人了。个人也一直都比较懒，学过很多东西，但是由于不愿意记笔记，不愿意定期去回顾，大多忘得差不多了。这就是像我这类人的悲哀吧，从不敢开口说自己精通什么东西，只能说，自己曾经做过，并且能很快的上手。</p>
+<p>昨天用hexo搭建了一个个人的博客，虽然搭好了以后，用起来很简单，建个文件放里面，敲击命令就能自动上传发布。但是你要为我每一步都要使用到哪些详细的命令，我多半回答不上来，最后打开chrome，用百度或Google找对应的操作步骤。其实想来，实在是一个很浪费时间的举措，明明自己曾经做过，会做的事情，却只记得住大概步骤，还得费心费力的去查找答案。说白了就是懒吧，既不愿意动脑筋记下来，也不愿意费力写下来。</p>
+<p>想来，从下定决定当程序员的时候开始，到现在，还真的做了不少笔记。要知道，我以前上课都从来不写笔记的，即使当时迫于老师的压力写了，过后也基本不会再去翻看自己的笔记，表面上是说觉得自己的字太丑了，不愿意看，其实深层次的原因还是因为自己根本就没有用心去做这件事情吧，就像自己从来没有用心的想把自己的字练好一样。虽然做了很多的笔记，但是基本上也就当时做了，后来基本上就没怎么看过，更别说按照<strong>艾宾浩斯记忆曲线</strong> 的规则去做了。</p>
+<p>絮絮叨叨的废话太多了，讲大道理好像也没什么屁用，<strong>务实</strong> 才是第一要务吧。</p>
+<h2 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h2><h3 id="hexo的安装"><a href="#hexo的安装" class="headerlink" title="hexo的安装"></a>hexo的安装</h3><ol>
+<li>hexo的安装：<code>npm install hexo -g</code> </li>
+<li>hexo的升级：<code>npm update hexo -g</code> </li>
+<li>hexo的初始化：<code>hexo init</code> </li>
+</ol>
+<p>ps:这些命令都不难，用过node.js的童鞋，学这个简直是小儿科对吧。当然可能对某些习惯于用鼠标的童鞋来说，还是很有难度的，毕竟大多数人用的都是windows系统的吧，也不喜欢用命令行操作。不过我想，对于大多数想成为程序员的童鞋来说，命令行操作只是基本功吧，不会命令行操作的童鞋赶紧偷偷去恶补下吧，简直是居家旅行必备的大杀器（咳咳……）。</p>
+<h3 id="hexo的简写命令"><a href="#hexo的简写命令" class="headerlink" title="hexo的简写命令"></a>hexo的简写命令</h3><ol>
+<li>新建文章：<code>hexo new &quot;文章&quot;</code> 等同于 <code>hexo n &quot;文章&quot;</code></li>
+<li>生成静态资源文件：<code>hexo generate</code> 等同于 <code>hexo g</code>（话说，博主的英文单词水平太烂，经常把generate打错^_^!）</li>
+<li>启动服务器： <code>hexo server</code> 等同于 <code>hexo s</code> （当然这个命令后面是可以带参数的，如更改端口号和ip等）</li>
+<li>一键发布博客：<code>hexo deploy</code> 等同于 <code>hexo d</code> （这个deploy也是我经常敲错的单词之一啊^_^!）</li>
+</ol>
+<h3 id="可能会用到的命令"><a href="#可能会用到的命令" class="headerlink" title="可能会用到的命令"></a>可能会用到的命令</h3><ol>
+<li><p><code>hexo clean</code><br>清除缓存文件，也就是清除本地缓存的静态页面文件，通俗的说就是把<code>public/</code> 文件夹给清空了，然后可以再通过<code>hexo generate</code> 重新成成静态资源文件。</p>
+</li>
+<li><p><code>hexo new page &quot;命令&quot;</code><br><strong>命令</strong> 可以换成<strong>about、categories、tags</strong> 等，可以生成博客中的标签、分类页面等。</p>
+</li>
+</ol>
+<h3 id="常见的文章头的写法"><a href="#常见的文章头的写法" class="headerlink" title="常见的文章头的写法"></a>常见的文章头的写法</h3><p>每个页面都需要页面头部才能正常的生成发布，一般都是这个样子的：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">---</span></div><div class="line"><span class="attr">title:</span> 文章标题</div><div class="line"><span class="attr">date:</span> 文章的时间</div><div class="line"><span class="attr">categories:</span> 分类</div><div class="line"><span class="attr">tags:</span></div><div class="line">	- 标签<span class="number">1</span></div><div class="line">	- 标签<span class="number">2</span></div><div class="line"><span class="attr">description:</span> 文章描述，有利于SEO吧</div><div class="line"><span class="attr">keywords:</span> 文章关键字</div><div class="line"><span class="meta">---</span></div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>本文章参考了以下两篇博主的文章：<br><strong>小弟调调</strong> 博主的<a href="https://segmentfault.com/a/1190000002632530" title="点击进入参考文章" target="_blank" rel="external">hexo常用命令笔记</a><br><strong>丁盛</strong> 博主的<a href="http://www.cnblogs.com/-ding/p/6009418.html" title="点击进入参考文章" target="_blank" rel="external">Hexo 最常用的几个命令</a></p>
+<p>PS：如果有兴趣的童鞋，可以自行前往阅读</p>
+]]></content>
+    
+    <summary type="html">
+    
+      记录一些hexo的常用命令
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://45.78.23.26/categories/hexo/"/>
+    
+    
+      <category term="笔记" scheme="http://45.78.23.26/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="hexo" scheme="http://45.78.23.26/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博文</title>
+    <link href="http://45.78.23.26//blog/2017/03/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87.html"/>
+    <id>http://45.78.23.26//blog/2017/03/04/我的第一篇博文.html</id>
+    <published>2017-03-04T04:21:43.000Z</published>
+    <updated>2017-03-04T12:12:33.456Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="胡言乱语"><a href="#胡言乱语" class="headerlink" title="胡言乱语"></a>胡言乱语</h3><p>之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏嘘不已吧。不过转念一想，只是因为自己之前的想法太过天真了吧。有些时候，自己还没有本事“造轮子”的时候，何妨不用一下拿来主义呢？只要不是全盘照抄，光copy不动脑筋，也是一种学习吧。</p>
+<p>我接触前端这个领域，想来也才不到一年的时间吧，不能说取得了多大的成就，但是好歹现在两只脚都迈进了前端的大门了吧。想想一年前的这个时候，我还对这些都一无所知，现在想来，好像自己当时都活的浑浑噩噩的，每天过的都没什么动力，拒绝面对现实，压根就不敢去思考该如何面对马上就要来临的毕业季。</p>
+<p>前段时间，找工作的时候，被现实来了重重的一击。我突然明白过来一个道理：“<em>其实最可怕的不是你不如别人，而是蓦然回首，你发现别人都在进步，而你依旧在原地踏步。</em>”。当然并不是说我之前一直都不明白这个道理，只不过是在那个时候，对这句话有了尤为深刻的理解。原来一直以来，我并不优秀，或者说，我曾经好像优秀过。过往的总总不过是过往云烟罢了，现实才是急需要去面对的唯一迫切的事情。人真的只有到了压力逼迫自己的时候，才会进步神速，也许存在那种有着非凡的毅力的人，但是我根本不可能是那种人。所以在那段时间里，只要我一睁开眼，就好像感觉到压力扑面而来，仿佛快要实质化了一般。对我来说，找不到工作，就等同于一个失败的人生。自己曾经所拥有的固执，拥有的高傲，拥有的冷酷，在现实的面包面前，是多么的卑微，多么的微不足道啊。</p>
+<p>之前放弃考研，打算转行当程序员的时候，压根就没有深入的了解过这个行业，更加没有深入的评估过自己的实力，以为好像一切都很简单，好像自己天生就适合干这个，好像自带天赋技能点一样。一切的一切，只有在经历过痛苦，经历过失败以后才明白，原来，<strong>时间</strong>加<strong>勤奋</strong>才等同于天分吧。没有人生来就适合干某一行，没有人生来就在某件事情上点满了技能点，至少对于我等凡夫俗子来说是这样的吧。</p>
+<p>曾经所经历过得一切，现在再怎么哀怨叹息都于事无补，我们要做的只是收拾好心情，重装上阵而已吧。曾经自己卑微过，懦弱过，无助过也堕落过，但是这一切都过去了，该做的是，现在努力奋斗，过好每一天，让悲剧不要再未来重演吧。</p>
+<h3 id="收拾心情"><a href="#收拾心情" class="headerlink" title="收拾心情"></a>收拾心情</h3><p>今天大概花了一天的时间，建好了我人生中自建的第一个博客，还是有点小小的成就感的。以后时常写写博客，抒发一下心情，也记录以下自己生活学习的轨迹吧。</p>
+<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
+<li><p>本博客，静态页面是挂载在Github-pages上面的，所以想要像我一样在弄个这个博客的童鞋，可以参考一下<a href="https://help.github.com/categories/github-pages-basics/" title="点击进入github pages介绍页面" target="_blank" rel="external">GitHub-pages</a></p>
+</li>
+<li><p>这个博客是参考了博主<a href="http://www.ezlippi.com/" title="点击进入ezlippi博主的博客" target="_blank" rel="external">ezlippi</a>的博客里的<a href="http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html" title="点击进入ezlippi博主的博客文章" target="_blank" rel="external">Jekyll迁移到Hexo搭建个人博客</a>，里面内容写的很详细，如果有兴趣的童鞋可以参考博主的文章</p>
+</li>
+<li><p>当然，这个博客的搭建，离不开<a href="https://hexo.io/zh-cn/" title="点击进入Hexo官网" target="_blank" rel="external">Hexo</a>和<a href="http://theme-next.iissnan.com/" title="点击进入Next主题官网" target="_blank" rel="external">Next</a>的技术支持</p>
+</li>
+</ol>
+<h3 id="申明"><a href="#申明" class="headerlink" title="申明"></a>申明</h3><p><em>本博客的素材资源，均来自网络。本博客非商业用途，如果原作者不允许使用，请联系我本人删除。谢谢！</em></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;胡言乱语&quot;&gt;&lt;a href=&quot;#胡言乱语&quot; class=&quot;headerlink&quot; title=&quot;胡言乱语&quot;&gt;&lt;/a&gt;胡言乱语&lt;/h3&gt;&lt;p&gt;之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏
+    
+    </summary>
+    
+      <category term="杂文" scheme="http://45.78.23.26/categories/%E6%9D%82%E6%96%87/"/>
+    
+    
+      <category term="杂文" scheme="http://45.78.23.26/tags/%E6%9D%82%E6%96%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>今天做过的一道js题目解析</title>
+    <link href="http://45.78.23.26//blog/2017/03/03/%E4%BB%8A%E5%A4%A9%E5%81%9A%E8%BF%87%E7%9A%84%E4%B8%80%E9%81%93js%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90.html"/>
+    <id>http://45.78.23.26//blog/2017/03/03/今天做过的一道js题目解析.html</id>
+    <published>2017-03-03T14:11:45.000Z</published>
+    <updated>2017-03-04T13:03:00.375Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天做题的时候，无意中做到一道这样的题：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;<span class="string">"key"</span>:<span class="string">"1"</span>, <span class="string">"value"</span>:<span class="string">"2"</span>&#125;;</div><div class="line"><span class="keyword">var</span> newObj = obj;</div><div class="line">newObj.value += obj.key;</div><div class="line"><span class="built_in">console</span>.log(newObj);</div></pre></td></tr></table></figure>
+<p>初看的时候，感觉好简单，当时就不加思索的给出了<code>{&quot;key&quot;: &quot;1&quot;, &quot;value&quot;:&quot;3&quot;}</code>这个答案。后来结果可想而知，当然是做错了。当时自我感觉羞愧难当，要说这本来就是个很基础的题目，正确的答案当然是这样了：<code>{&quot;key&quot;: &quot;1&quot;, &quot;value&quot;:&quot;21&quot;}</code>；看过答案以后，稍微思索一下，就能够得出这个答案，但是为什么初看的时候做错了呢？</p>
+<p>后来想了想，归根到底，原因还是自己对<strong>JavaScript</strong>这门语言的基础知识掌握的不扎实。要说这道题目，主要考察的就是JavaScript中的<strong>Object对象</strong>、<strong>string字符串</strong>和<strong>“+”</strong>操作符的作用等知识点。如果说学JavaScript这么语言，没掌握这些基础的知识，那么你压根就不敢说自己懂JavaScript了吧。</p>
+<p>具体的这些知识点的详解，在这里也不一一列举了，有太多书籍都有介绍过。如果有不懂的读者，可以自行百度或者通过看书去查阅了解。在这里，我推荐一本我觉得不错的书——《JavaScript高级程序设计》。</p>
+<p>重新温习过相关的知识点以后，我又自己改动了一下题目，代码变成了这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//demo 01</span></div><div class="line"><span class="keyword">var</span> obj = &#123;<span class="string">"key"</span>:<span class="string">"1"</span>,<span class="string">"value"</span>:<span class="string">"2"</span>&#125;;	<span class="comment">//属性名也可以采用字符串的设置方式</span></div><div class="line"><span class="keyword">var</span> newObj = obj;</div><div class="line"><span class="built_in">console</span>.log(obj.key);	<span class="comment">//"1"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> newObj.value);	<span class="comment">//string</span></div><div class="line"><span class="built_in">console</span>.log(newObj.value);	<span class="comment">//"2"</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> newObj.value);	<span class="comment">//string</span></div><div class="line">newObj.value += obj.key;</div><div class="line"><span class="built_in">console</span>.log(newObj);	<span class="comment">//&#123;"key":"1", "value":"21"&#125;</span></div></pre></td></tr></table></figure>
+<p>再改一下，变成下面的形式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//demo 02</span></div><div class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">key</span>:<span class="number">1</span>,<span class="attr">value</span>:<span class="number">2</span>&#125;;	<span class="comment">//属性名也可以采用这种方式，将属性值变成数值</span></div><div class="line"><span class="keyword">var</span> newObj = obj;</div><div class="line"><span class="built_in">console</span>.log(obj.key);	<span class="comment">//1</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> newObj.value);	<span class="comment">//number</span></div><div class="line"><span class="built_in">console</span>.log(newObj.value);	<span class="comment">//2</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> newObj.value);	<span class="comment">//number</span></div><div class="line">newObj.value += obj.key;</div><div class="line"><span class="built_in">console</span>.log(newObj);	<span class="comment">//&#123;"key":1, "value":3&#125;</span></div></pre></td></tr></table></figure>
+<p>我相信，大部分入门了<strong>JavaScript</strong>这门语言的读者，看了上面两个demo变体之后，都应该一目了然，懂得了这道题的原理了。</p>
+<p>编程语言的掌握真的不是一件易事，至少对于我这个刚入门的小白来说，的确是这样的。</p>
+<p>本人只是一枚前端小白，以上有一些个人的拙见，若喷请轻喷，也欢迎同样跟我奋斗在前端道路上的新手童鞋跟我交流学习，我的个人邮箱是：<code>wuzhiqin@yahoo.com</code>，欢迎叨扰。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天做题的时候，无意中做到一道这样的题：&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;lin
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://45.78.23.26/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://45.78.23.26/tags/JavaScript/"/>
+    
+  </entry>
+  
+</feed>
