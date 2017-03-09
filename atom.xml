@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://45.78.23.26/"/>
-  <updated>2017-03-07T07:08:32.462Z</updated>
+  <updated>2017-03-09T02:02:50.315Z</updated>
   <id>http://45.78.23.26/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sass编译时候不支持中文字体的解决方案</title>
+    <link href="http://45.78.23.26//blog/2017/03/09/sass%E7%BC%96%E8%AF%91%E6%97%B6%E5%80%99%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
+    <id>http://45.78.23.26//blog/2017/03/09/sass编译时候不支持中文字体的解决方案.html</id>
+    <published>2017-03-09T01:42:49.000Z</published>
+    <updated>2017-03-09T02:02:50.315Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天在工作的时候，用到sass，编译的时候遇到了这个问题：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error: </span>Invalid GBK character "\xE9"</div><div class="line">        on line 5 of scss.scss</div><div class="line">  Use --trace for backtrace.</div></pre></td></tr></table></figure>
+<p>开始我还以为是我代码写的有问题，以为不能采用如下方式写代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font</span>: <span class="number">2rem</span>/<span class="number">2</span> <span class="string">"黑体"</span>,<span class="string">"微软雅黑"</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后来我将代码改成这样，不采用简写的方式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">font-style</span>:  <span class="string">"黑体"</span>,<span class="string">"微软雅黑"</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>没想到编译还是不通过，还是报错：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error: </span>Invalid GBK character "\xE9"</div><div class="line">        on line 7 of scss.scss</div><div class="line">  Use --trace for backtrace.</div></pre></td></tr></table></figure></p>
+<p>后来我仔细的揣摩了以下报错的内容，然后变成下面这样，就不报错了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原来是中文字体搞得鬼……后来我上网找了一下解决方案，大致有几种解决方案吧</p>
+<ol>
+<li><p>第一种方案:在scss文件第一行加上这行代码 <code>@charset &quot;utf-8&quot;</code> ,再次编译的时候，就不会报错，能正常的编译出来了。但是这个方法有个致命的缺点，就是太麻烦了，每次写sass之前都要加上一行这个代码，多麻烦。</p>
+</li>
+<li><p>第二种方案：如果你采用的是ruby环境安装的sass，那么你只需要在安装sass这个模块的目录中，找到 <code>engine.rb</code> 文件，打开以后，在最末行添上如下一行代码，然后保存退出，即可正常编译，一劳永逸的解决方法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Encoding.default_external = Encoding.find(<span class="string">'utf-8'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      sass编译报错的时候，一些解决方案
+    
+    </summary>
+    
+      <category term="sass" scheme="http://45.78.23.26/categories/sass/"/>
+    
+    
+      <category term="sass" scheme="http://45.78.23.26/tags/sass/"/>
+    
+      <category term="报错" scheme="http://45.78.23.26/tags/%E6%8A%A5%E9%94%99/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS属性选择器</title>
@@ -77,7 +118,7 @@
     <link href="http://45.78.23.26//blog/2017/03/05/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E4%BB%A4.html"/>
     <id>http://45.78.23.26//blog/2017/03/05/hexo常见命令令.html</id>
     <published>2017-03-05T06:08:26.000Z</published>
-    <updated>2017-03-05T07:16:09.059Z</updated>
+    <updated>2017-03-07T07:09:42.269Z</updated>
     
     <content type="html"><![CDATA[<h2 id="正文前的絮絮叨叨之言"><a href="#正文前的絮絮叨叨之言" class="headerlink" title="正文前的絮絮叨叨之言"></a>正文前的絮絮叨叨之言</h2><p>本人其实并不是一个很勤奋有毅力的人，之前很多曾信誓旦旦的说过要坚持下去的事情，最终大都不了了之了。回想起来，我这辈子，到现在为止，坚持最长时间的事情大概就是<em>做一名周杰伦的歌迷</em> 吧，而第二长的事情大概就是谈恋爱吧。但是其实这也并非是一件羞于开口向外人道的事情吧，毕竟，我本来就是一名普通的再普通不过的人了。个人也一直都比较懒，学过很多东西，但是由于不愿意记笔记，不愿意定期去回顾，大多忘得差不多了。这就是像我这类人的悲哀吧，从不敢开口说自己精通什么东西，只能说，自己曾经做过，并且能很快的上手。</p>
 <p>昨天用hexo搭建了一个个人的博客，虽然搭好了以后，用起来很简单，建个文件放里面，敲击命令就能自动上传发布。但是你要为我每一步都要使用到哪些详细的命令，我多半回答不上来，最后打开chrome，用百度或Google找对应的操作步骤。其实想来，实在是一个很浪费时间的举措，明明自己曾经做过，会做的事情，却只记得住大概步骤，还得费心费力的去查找答案。说白了就是懒吧，既不愿意动脑筋记下来，也不愿意费力写下来。</p>
