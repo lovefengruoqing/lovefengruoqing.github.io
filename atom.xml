@@ -4,9 +4,9 @@
   <subtitle>前端新手的小站</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://45.78.23.26/"/>
+  <link href="http://www.wuzhiqin.tk/"/>
   <updated>2017-03-12T15:22:36.260Z</updated>
-  <id>http://45.78.23.26/</id>
+  <id>http://www.wuzhiqin.tk/</id>
   
   <author>
     <name>纯爱枫若情</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>无可避免的结局</title>
-    <link href="http://45.78.23.26//blog/2017/03/11/%E6%97%A0%E5%8F%AF%E9%81%BF%E5%85%8D%E7%9A%84%E7%BB%93%E5%B1%80.html"/>
-    <id>http://45.78.23.26//blog/2017/03/11/无可避免的结局.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/11/%E6%97%A0%E5%8F%AF%E9%81%BF%E5%85%8D%E7%9A%84%E7%BB%93%E5%B1%80.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/11/无可避免的结局.html</id>
     <published>2017-03-11T00:03:17.000Z</published>
     <updated>2017-03-12T15:22:36.260Z</updated>
     
@@ -65,19 +65,19 @@
     
     </summary>
     
-      <category term="杂文" scheme="http://45.78.23.26/categories/%E6%9D%82%E6%96%87/"/>
+      <category term="杂文" scheme="http://www.wuzhiqin.tk/categories/%E6%9D%82%E6%96%87/"/>
     
     
-      <category term="杂文" scheme="http://45.78.23.26/tags/%E6%9D%82%E6%96%87/"/>
+      <category term="杂文" scheme="http://www.wuzhiqin.tk/tags/%E6%9D%82%E6%96%87/"/>
     
-      <category term="工作" scheme="http://45.78.23.26/tags/%E5%B7%A5%E4%BD%9C/"/>
+      <category term="工作" scheme="http://www.wuzhiqin.tk/tags/%E5%B7%A5%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>sass编译时候不支持中文字体的解决方案</title>
-    <link href="http://45.78.23.26//blog/2017/03/09/sass%E7%BC%96%E8%AF%91%E6%97%B6%E5%80%99%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
-    <id>http://45.78.23.26//blog/2017/03/09/sass编译时候不支持中文字体的解决方案.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/09/sass%E7%BC%96%E8%AF%91%E6%97%B6%E5%80%99%E4%B8%8D%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/09/sass编译时候不支持中文字体的解决方案.html</id>
     <published>2017-03-09T01:42:49.000Z</published>
     <updated>2017-03-09T02:02:50.315Z</updated>
     
@@ -106,19 +106,19 @@
     
     </summary>
     
-      <category term="sass" scheme="http://45.78.23.26/categories/sass/"/>
+      <category term="sass" scheme="http://www.wuzhiqin.tk/categories/sass/"/>
     
     
-      <category term="sass" scheme="http://45.78.23.26/tags/sass/"/>
+      <category term="sass" scheme="http://www.wuzhiqin.tk/tags/sass/"/>
     
-      <category term="报错" scheme="http://45.78.23.26/tags/%E6%8A%A5%E9%94%99/"/>
+      <category term="报错" scheme="http://www.wuzhiqin.tk/tags/%E6%8A%A5%E9%94%99/"/>
     
   </entry>
   
   <entry>
     <title>CSS属性选择器</title>
-    <link href="http://45.78.23.26//blog/2017/03/07/CSS%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.html"/>
-    <id>http://45.78.23.26//blog/2017/03/07/CSS属性选择器.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/07/CSS%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/07/CSS属性选择器.html</id>
     <published>2017-03-07T02:29:31.000Z</published>
     <updated>2017-03-07T07:08:32.462Z</updated>
     
@@ -163,19 +163,19 @@
     
     </summary>
     
-      <category term="css" scheme="http://45.78.23.26/categories/css/"/>
+      <category term="css" scheme="http://www.wuzhiqin.tk/categories/css/"/>
     
     
-      <category term="css" scheme="http://45.78.23.26/tags/css/"/>
+      <category term="css" scheme="http://www.wuzhiqin.tk/tags/css/"/>
     
-      <category term="note" scheme="http://45.78.23.26/tags/note/"/>
+      <category term="note" scheme="http://www.wuzhiqin.tk/tags/note/"/>
     
   </entry>
   
   <entry>
     <title>hexo常见命令令</title>
-    <link href="http://45.78.23.26//blog/2017/03/05/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E4%BB%A4.html"/>
-    <id>http://45.78.23.26//blog/2017/03/05/hexo常见命令令.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/05/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E4%BB%A4.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/05/hexo常见命令令.html</id>
     <published>2017-03-05T06:08:26.000Z</published>
     <updated>2017-03-07T07:09:42.269Z</updated>
     
@@ -212,19 +212,19 @@
     
     </summary>
     
-      <category term="hexo" scheme="http://45.78.23.26/categories/hexo/"/>
+      <category term="hexo" scheme="http://www.wuzhiqin.tk/categories/hexo/"/>
     
     
-      <category term="笔记" scheme="http://45.78.23.26/tags/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="http://www.wuzhiqin.tk/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="hexo" scheme="http://45.78.23.26/tags/hexo/"/>
+      <category term="hexo" scheme="http://www.wuzhiqin.tk/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>我的第一篇博文</title>
-    <link href="http://45.78.23.26//blog/2017/03/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87.html"/>
-    <id>http://45.78.23.26//blog/2017/03/04/我的第一篇博文.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/04/我的第一篇博文.html</id>
     <published>2017-03-04T04:21:43.000Z</published>
     <updated>2017-03-04T12:12:33.456Z</updated>
     
@@ -251,17 +251,17 @@
     
     </summary>
     
-      <category term="杂文" scheme="http://45.78.23.26/categories/%E6%9D%82%E6%96%87/"/>
+      <category term="杂文" scheme="http://www.wuzhiqin.tk/categories/%E6%9D%82%E6%96%87/"/>
     
     
-      <category term="杂文" scheme="http://45.78.23.26/tags/%E6%9D%82%E6%96%87/"/>
+      <category term="杂文" scheme="http://www.wuzhiqin.tk/tags/%E6%9D%82%E6%96%87/"/>
     
   </entry>
   
   <entry>
     <title>今天做过的一道js题目解析</title>
-    <link href="http://45.78.23.26//blog/2017/03/03/%E4%BB%8A%E5%A4%A9%E5%81%9A%E8%BF%87%E7%9A%84%E4%B8%80%E9%81%93js%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90.html"/>
-    <id>http://45.78.23.26//blog/2017/03/03/今天做过的一道js题目解析.html</id>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/03/%E4%BB%8A%E5%A4%A9%E5%81%9A%E8%BF%87%E7%9A%84%E4%B8%80%E9%81%93js%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/03/今天做过的一道js题目解析.html</id>
     <published>2017-03-03T14:11:45.000Z</published>
     <updated>2017-03-04T13:03:00.375Z</updated>
     
@@ -286,10 +286,10 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="http://45.78.23.26/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="http://www.wuzhiqin.tk/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="http://45.78.23.26/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="http://www.wuzhiqin.tk/tags/JavaScript/"/>
     
   </entry>
   

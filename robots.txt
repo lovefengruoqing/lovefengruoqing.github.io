@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+Allow: /about/
+Allow: /blog/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+
+Sitemap: http://www.wuzhiqin.tk/sitemap.xml
+Sitemap: http://www.wuzhiqin.tk/baidusitemap.xml
