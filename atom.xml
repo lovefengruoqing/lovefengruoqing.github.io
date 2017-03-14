@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-03-14T12:15:39.572Z</updated>
+  <updated>2017-03-14T13:50:52.171Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.wuzhiqin.tk//blog/2017/03/14/%E7%94%B1JavaScript%E9%98%B6%E4%B9%98%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95%E5%AF%B9arguments.callee%E5%B1%9E%E6%80%A7%E5%B1%95%E5%BC%80%E7%9A%84%E6%80%9D%E8%80%83.html"/>
     <id>http://www.wuzhiqin.tk//blog/2017/03/14/由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考.html</id>
     <published>2017-03-14T09:22:57.000Z</published>
-    <updated>2017-03-14T12:15:39.572Z</updated>
+    <updated>2017-03-14T13:50:52.171Z</updated>
     
     <content type="html"><![CDATA[<p>在JavaScript的函数内部，包含着两者两个特殊的对象，分别是<code>arguments</code> 和 <code>this</code>。这篇文章，想讨论下arguments这个特性。</p>
 <p>arguments是一个类数组对象，包含着传入函数中的所有参数。虽然arguments则主要用途是保存函数的参数，但是并不仅限于此，它还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。</p>
@@ -50,7 +50,7 @@
 <p>这是为什么呢？</p>
 <p>我思考了很久，得出了以下结论：</p>
 <blockquote>
-<p>原来，根本就没有这么复杂。当你把a函数赋给b函数的时候，相当于copy了a函数当时状态的一个副本给b函数，除非你直接修改b函数存下来的这个副本，否则，你修改原函数a是不会对这个副本造成什么副作用。但是如果这个副本里，引用了这个原函数a本身的话。在执行的过程中，他就会调用这个修改后的a函数了。我觉得原因是因为，这个a函数与b函数是存在于window作用域中的，但是这个副本并不是，它只是一直保持着那个赋值时候的状态，只不过JavaScript执行环境偷了一个懒，没有把这个副本函数的名字给替换成b的变量名而已。但其实这个副本函数的名字没什么作用了，也只是一个代号而已，你无法在函数中用这个副本的名字调用它本身，只能用<code>arguments.callee</code> 而以。</p>
+<p>原来，根本就没有这么复杂。当你把a函数赋给b函数的时候，相当于copy了a函数当时状态的一个副本给b函数（注：姑且这么理解吧，其实函数的名字只不过是一个指针而已，指向堆内存中存储的一个函数。将a函数赋给b函数，就是将a的指针复制给b一份，后来修改了a，就导致a的指针指向修改后的函数，但是b指向的堆中的那个函数并没有发生变化。），除非你直接修改b函数存下来的这个副本，否则，你修改原函数a是不会对这个副本造成什么副作用。但是如果这个副本里，引用了这个原函数a本身的话。在执行的过程中，他就会调用这个修改后的a函数了。我觉得原因是因为，这个a函数与b函数是存在于window作用域中的，但是这个副本并不是，它只是一直保持着那个赋值时候的状态，只不过JavaScript执行环境偷了一个懒，没有把这个副本函数的名字给替换成b的变量名而已。但其实这个副本函数的名字没什么作用了，也只是一个代号而已，你无法在函数中用这个副本的名字调用它本身，只能用<code>arguments.callee</code> 而以。</p>
 </blockquote>
 ]]></content>
     

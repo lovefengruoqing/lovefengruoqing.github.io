@@ -111,7 +111,7 @@ arguments是一个类数组对象，包含着传入函数中的所有参数。�
 <meta property="og:description" content="在JavaScript的函数内部，包含着两者两个特殊的对象，分别是arguments 和 this。这篇文章，想讨论下arguments这个特性。
 arguments是一个类数组对象，包含着传入函数中的所有参数。虽然arguments则主要用途是保存函数的参数，但是并不仅限于此，它还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。
 下面是一个经典的阶乘函数">
-<meta property="og:updated_time" content="2017-03-14T12:15:39.572Z">
+<meta property="og:updated_time" content="2017-03-14T13:50:52.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考">
 <meta name="twitter:description" content="在JavaScript的函数内部，包含着两者两个特殊的对象，分别是arguments 和 this。这篇文章，想讨论下arguments这个特性。
@@ -424,7 +424,7 @@ arguments是一个类数组对象，包含着传入函数中的所有参数。�
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      1,572
+                      1,671
                     </span>
               
 
@@ -440,7 +440,7 @@ arguments是一个类数组对象，包含着传入函数中的所有参数。�
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      6
+                      7
                     </span>
               
             </div>
@@ -487,7 +487,7 @@ arguments是一个类数组对象，包含着传入函数中的所有参数。�
 <p>这是为什么呢？</p>
 <p>我思考了很久，得出了以下结论：</p>
 <blockquote>
-<p>原来，根本就没有这么复杂。当你把a函数赋给b函数的时候，相当于copy了a函数当时状态的一个副本给b函数，除非你直接修改b函数存下来的这个副本，否则，你修改原函数a是不会对这个副本造成什么副作用。但是如果这个副本里，引用了这个原函数a本身的话。在执行的过程中，他就会调用这个修改后的a函数了。我觉得原因是因为，这个a函数与b函数是存在于window作用域中的，但是这个副本并不是，它只是一直保持着那个赋值时候的状态，只不过JavaScript执行环境偷了一个懒，没有把这个副本函数的名字给替换成b的变量名而已。但其实这个副本函数的名字没什么作用了，也只是一个代号而已，你无法在函数中用这个副本的名字调用它本身，只能用<code>arguments.callee</code> 而以。</p>
+<p>原来，根本就没有这么复杂。当你把a函数赋给b函数的时候，相当于copy了a函数当时状态的一个副本给b函数（注：姑且这么理解吧，其实函数的名字只不过是一个指针而已，指向堆内存中存储的一个函数。将a函数赋给b函数，就是将a的指针复制给b一份，后来修改了a，就导致a的指针指向修改后的函数，但是b指向的堆中的那个函数并没有发生变化。），除非你直接修改b函数存下来的这个副本，否则，你修改原函数a是不会对这个副本造成什么副作用。但是如果这个副本里，引用了这个原函数a本身的话。在执行的过程中，他就会调用这个修改后的a函数了。我觉得原因是因为，这个a函数与b函数是存在于window作用域中的，但是这个副本并不是，它只是一直保持着那个赋值时候的状态，只不过JavaScript执行环境偷了一个懒，没有把这个副本函数的名字给替换成b的变量名而已。但其实这个副本函数的名字没什么作用了，也只是一个代号而已，你无法在函数中用这个副本的名字调用它本身，只能用<code>arguments.callee</code> 而以。</p>
 </blockquote>
 
       
