@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-03-16T03:27:38.167Z</updated>
+  <updated>2017-03-16T04:21:38.614Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.wuzhiqin.tk//blog/2017/03/16/http%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95.html"/>
     <id>http://www.wuzhiqin.tk//blog/2017/03/16/http请求的不同方法.html</id>
     <published>2017-03-16T02:23:47.000Z</published>
-    <updated>2017-03-16T03:27:38.167Z</updated>
+    <updated>2017-03-16T04:21:38.614Z</updated>
     
     <content type="html"><![CDATA[<p>根据HTTP标准，HTTP请求卡可以使用过重请求方法。</p>
 <p>HTTP1.0定义了三种请求方法：GET，POST和HEAD方法。</p>
@@ -31,6 +31,8 @@
 <h3 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h3><p>允许客户端查看服务器的性能。</p>
 <h3 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h3><p>从客户端向服务器传送的数据取代指定的文档的内容。主要作用是更新指定的数据资源</p>
 <h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>请求服务器删除指定的资源</p>
+<h3 id="CONCECT"><a href="#CONCECT" class="headerlink" title="CONCECT"></a>CONCECT</h3><p>HTTP/1.1 协议中预留给能够将连接改为管道方式的代理服务器</p>
+<h3 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h3><p>回显服务器收到的请求，主要用于测试或诊断</p>
 ]]></content>
     
     <summary type="html">
