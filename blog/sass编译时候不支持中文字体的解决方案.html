@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css, blog, 笔记" />
+  <meta name="keywords" content="sass 编译 中文字体" />
 
 
 
@@ -101,16 +101,16 @@
 
 
 
-<meta name="description" content="深入学习css属性选择器的笔记">
+<meta name="description" content="sass编译报错的时候，一些解决方案">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS属性选择器">
-<meta property="og:url" content="http://www.wuzhiqin.tk/blog/2017/03/07/CSS属性选择器.html">
+<meta property="og:title" content="sass编译时候不支持中文字体的解决方案">
+<meta property="og:url" content="http://www.wuzhiqin.tk/blog/sass编译时候不支持中文字体的解决方案.html">
 <meta property="og:site_name" content="纯爱枫若情的博客">
-<meta property="og:description" content="深入学习css属性选择器的笔记">
-<meta property="og:updated_time" content="2017-03-07T07:08:32.462Z">
+<meta property="og:description" content="sass编译报错的时候，一些解决方案">
+<meta property="og:updated_time" content="2017-03-09T02:02:50.315Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS属性选择器">
-<meta name="twitter:description" content="深入学习css属性选择器的笔记">
+<meta name="twitter:title" content="sass编译时候不支持中文字体的解决方案">
+<meta name="twitter:description" content="sass编译报错的时候，一些解决方案">
 
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/2017/03/07/CSS属性选择器.html"/>
+  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/sass编译时候不支持中文字体的解决方案.html"/>
 
 
 
 
 
-  <title> CSS属性选择器 | 纯爱枫若情的博客 </title>
+  <title> sass编译时候不支持中文字体的解决方案 | 纯爱枫若情的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +303,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/2017/03/07/CSS属性选择器.html">
+    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/sass编译时候不支持中文字体的解决方案.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="纯爱枫若情">
@@ -324,7 +324,7 @@
             
             
               
-                CSS属性选择器
+                sass编译时候不支持中文字体的解决方案
               
             
           </h2>
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T10:29:31+08:00">
-                2017-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T09:42:49+08:00">
+                2017-03-09
               </time>
             
 
@@ -362,8 +362,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/css/" itemprop="url" rel="index">
-                    <span itemprop="name">css</span>
+                  <a href="/categories/sass/" itemprop="url" rel="index">
+                    <span itemprop="name">sass</span>
                   </a>
                 </span>
 
@@ -380,8 +380,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2017/03/07/CSS属性选择器.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2017/03/07/CSS属性选择器.html" itemprop="commentCount"></span>
+                <a href="/blog/sass编译时候不支持中文字体的解决方案.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/sass编译时候不支持中文字体的解决方案.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -389,7 +389,7 @@
 
           
           
-             <span id="/blog/2017/03/07/CSS属性选择器.html" class="leancloud_visitors" data-flag-title="CSS属性选择器">
+             <span id="/blog/sass编译时候不支持中文字体的解决方案.html" class="leancloud_visitors" data-flag-title="sass编译时候不支持中文字体的解决方案">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,7 +418,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      624
+                      401
                     </span>
               
 
@@ -442,7 +442,7 @@
 
           
               <div class="post-description">
-                  深入学习css属性选择器的笔记
+                  sass编译报错的时候，一些解决方案
               </div>
           
 
@@ -457,39 +457,23 @@
       
 
       
-        <h2 id="常规属性选择器"><a href="#常规属性选择器" class="headerlink" title="常规属性选择器"></a>常规属性选择器</h2><h3 id="根据attribute通配"><a href="#根据attribute通配" class="headerlink" title="根据attribute通配"></a>根据attribute通配</h3><p>常规的属性选择器，采用 <code>element[attribute]</code> 方式，即可选中想要的元素，然后添加对应的css样式</p>
-<h3 id="根据具体的property选择"><a href="#根据具体的property选择" class="headerlink" title="根据具体的property选择"></a>根据具体的property选择</h3><p>根据具体的property选择，采用 <code>elements[attribute=property]</code> 方式，即选出对应元素上有相应属性值的元素，添加对应的css样式。</p>
-<p>采用这种模式的时候，如果一个attribute有多个property属性，那么就不会被匹配上</p>
-<h3 id="根据部分属性值选择"><a href="#根据部分属性值选择" class="headerlink" title="根据部分属性值选择"></a>根据部分属性值选择</h3><p>根据部分属性值选择，采用 <code>elements[attribute~=property]</code> 方式，这种方式和上一条 <strong>根据具体属性选择</strong> 方式很类似，只是在 <code>=</code> 前面加上了一个 <code>~</code> 符号。</p>
-<h4 id="属性名为英文"><a href="#属性名为英文" class="headerlink" title="属性名为英文"></a>属性名为英文</h4><p>采用这种匹配模式的时候，值得注意的一点是，它匹配的是英文中的单词模式，如下面的例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">a[title~="zhihu"]&#123;</div><div class="line">	text-decoration: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"> <span class="comment">&lt;!-- 会被正确的匹配上，链接中的下划线被去掉 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.zhihu.com"</span> <span class="attr">title</span>=<span class="string">"zhihu html"</span>&gt;</span>点击进入知乎首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="属性名为中文"><a href="#属性名为中文" class="headerlink" title="属性名为中文"></a>属性名为中文</h4><p>但是如果attribute的property是中文写的，那么就不能够匹配的到，除非你加上空格，否则不能正确的匹配出来</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">a[title~="知乎"]&#123;</div><div class="line">	text-decoration: none;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"> <span class="comment">&lt;!-- 不会被正确的匹配上，链接中的下划线不会被去掉 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.zhihu.com"</span> <span class="attr">title</span>=<span class="string">"知乎网页"</span>&gt;</span>点击进入知乎首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="其他部分属性选择器"><a href="#其他部分属性选择器" class="headerlink" title="其他部分属性选择器"></a>其他部分属性选择器</h4><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[foo^=”bar”]</td>
-<td>选择foo属性值以“bar”开头的所有元素</td>
-</tr>
-<tr>
-<td>[foo$=”bar”]</td>
-<td>选择foo属性值以“bar”结尾的所有元素</td>
-</tr>
-<tr>
-<td>[foo*=”bar”]</td>
-<td>选择foo属性值中包含字符串“bar”的所有元素</td>
-</tr>
-</tbody>
-</table>
-<h2 id="特定属性选择器"><a href="#特定属性选择器" class="headerlink" title="特定属性选择器"></a>特定属性选择器</h2><p>这个特定属性选择器一般用于通配所有的元素中的一类元素，采用“*”选择所有元素，基本格式如下所示：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">--- css代码 ---</div><div class="line">*[lang|="en"]&#123;</div><div class="line">	color: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line">--- html部分代码 ---</div><div class="line"><span class="comment">&lt;!-- 能够匹配前三个，而后两个不会被选中 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>Hello!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">lang</span>=<span class="string">"en-us"</span>&gt;</span>Greetings!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">lang</span>=<span class="string">"en-au"</span>&gt;</span>G'day!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">lang</span>=<span class="string">"fr"</span>&gt;</span>Bonjour!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">lang</span>=<span class="string">"cy-en"</span>&gt;</span>Jrooana!<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这个属性和部分属性选择器的格式有点类似，但是这个选择器有点变态的地方是，它匹配的property不是英文单词，而是一个个字母，也就是说，如果你属性值采用了中文，也能轻松匹配了。</p>
+        <p>今天在工作的时候，用到sass，编译的时候遇到了这个问题：</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error: </span>Invalid GBK character "\xE9"</div><div class="line">        on line 5 of scss.scss</div><div class="line">  Use --trace for backtrace.</div></pre></td></tr></table></figure>
+<p>开始我还以为是我代码写的有问题，以为不能采用如下方式写代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font</span>: <span class="number">2rem</span>/<span class="number">2</span> <span class="string">"黑体"</span>,<span class="string">"微软雅黑"</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后来我将代码改成这样，不采用简写的方式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">font-style</span>:  <span class="string">"黑体"</span>,<span class="string">"微软雅黑"</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>没想到编译还是不通过，还是报错：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Error: </span>Invalid GBK character "\xE9"</div><div class="line">        on line 7 of scss.scss</div><div class="line">  Use --trace for backtrace.</div></pre></td></tr></table></figure></p>
+<p>后来我仔细的揣摩了以下报错的内容，然后变成下面这样，就不报错了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">h1</span>&#123;</div><div class="line">	<span class="attribute">font-size</span>: <span class="number">2rem</span>;</div><div class="line">	<span class="attribute">line-height</span>: <span class="number">2</span>;</div><div class="line">	<span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;</div><div class="line">	<span class="attribute">width</span>: <span class="number">30%</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>原来是中文字体搞得鬼……后来我上网找了一下解决方案，大致有几种解决方案吧</p>
+<ol>
+<li><p>第一种方案:在scss文件第一行加上这行代码 <code>@charset &quot;utf-8&quot;</code> ,再次编译的时候，就不会报错，能正常的编译出来了。但是这个方法有个致命的缺点，就是太麻烦了，每次写sass之前都要加上一行这个代码，多麻烦。</p>
+</li>
+<li><p>第二种方案：如果你采用的是ruby环境安装的sass，那么你只需要在安装sass这个模块的目录中，找到 <code>engine.rb</code> 文件，打开以后，在最末行添上如下一行代码，然后保存退出，即可正常编译，一劳永逸的解决方法</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Encoding.default_external = Encoding.find(<span class="string">'utf-8'</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
       
     </div>
@@ -513,9 +497,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
+            <a href="/tags/sass/" rel="tag"># sass</a>
           
-            <a href="/tags/note/" rel="tag"># note</a>
+            <a href="/tags/报错/" rel="tag"># 报错</a>
           
         </div>
       
@@ -528,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/03/05/hexo常见命令令.html" rel="next" title="hexo常见命令令">
-                <i class="fa fa-chevron-left"></i> hexo常见命令令
+              <a href="/blog/CSS属性选择器.html" rel="next" title="CSS属性选择器">
+                <i class="fa fa-chevron-left"></i> CSS属性选择器
               </a>
             
           </div>
@@ -538,8 +522,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/03/09/sass编译时候不支持中文字体的解决方案.html" rel="prev" title="sass编译时候不支持中文字体的解决方案">
-                sass编译时候不支持中文字体的解决方案 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/无可避免的结局.html" rel="prev" title="无可避免的结局">
+                无可避免的结局 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -555,10 +539,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="/blog/2017/03/07/CSS属性选择器.html"
-     data-title="CSS属性选择器"
+        <div class="ds-share flat" data-thread-key="/blog/sass编译时候不支持中文字体的解决方案.html"
+     data-title="sass编译时候不支持中文字体的解决方案"
      data-content=""
-     data-url="http://www.wuzhiqin.tk//blog/2017/03/07/CSS属性选择器.html">
+     data-url="http://www.wuzhiqin.tk//blog/sass编译时候不支持中文字体的解决方案.html">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -588,8 +572,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="/blog/2017/03/07/CSS属性选择器.html"
-           data-title="CSS属性选择器" data-url="http://www.wuzhiqin.tk//blog/2017/03/07/CSS属性选择器.html">
+      <div class="ds-thread" data-thread-key="/blog/sass编译时候不支持中文字体的解决方案.html"
+           data-title="sass编译时候不支持中文字体的解决方案" data-url="http://www.wuzhiqin.tk//blog/sass编译时候不支持中文字体的解决方案.html">
       </div>
     
   </div>
@@ -613,17 +597,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -727,22 +702,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常规属性选择器"><span class="nav-number">1.</span> <span class="nav-text">常规属性选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据attribute通配"><span class="nav-number">1.1.</span> <span class="nav-text">根据attribute通配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据具体的property选择"><span class="nav-number">1.2.</span> <span class="nav-text">根据具体的property选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据部分属性值选择"><span class="nav-number">1.3.</span> <span class="nav-text">根据部分属性值选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性名为英文"><span class="nav-number">1.3.1.</span> <span class="nav-text">属性名为英文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性名为中文"><span class="nav-number">1.3.2.</span> <span class="nav-text">属性名为中文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他部分属性选择器"><span class="nav-number">1.3.3.</span> <span class="nav-text">其他部分属性选择器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特定属性选择器"><span class="nav-number">2.</span> <span class="nav-text">特定属性选择器</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

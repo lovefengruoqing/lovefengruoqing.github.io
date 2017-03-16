@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="杂文," />
+  <meta name="keywords" content="http请求 DNS缓存" />
 
 
 
@@ -101,21 +101,28 @@
 
 
 
-<meta name="description" content="胡言乱语之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏嘘不已吧。不过转念一想，只是因为自己之前的想法太过天真了吧。有些时候，自己还没有本事“造轮子”的时候，何妨不用一下拿来主义呢？只要不是全盘照抄，光copy不动脑筋，也是一种学习吧。
-我接触前端这个领域，想来也才不到一年的时间吧，不能说取得了多大的成就，但是好歹现在两只">
+<meta name="description" content="发送一个http请求以后，经历过的步骤：
+
+发送一个域名请求以后，如常见的http://www.baidu.com 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的是chrome浏览器，那么输入chrome://net-internals/#dns 然后敲回车就能看到chrome浏览器的dns缓存
+
+搜索操作系统自身的DNS缓存，如果没找到进行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博文">
-<meta property="og:url" content="http://www.wuzhiqin.tk/blog/2017/03/04/我的第一篇博文.html">
+<meta property="og:title" content="http基础知识">
+<meta property="og:url" content="http://www.wuzhiqin.tk/blog/http基础知识.html">
 <meta property="og:site_name" content="纯爱枫若情的博客">
-<meta property="og:description" content="胡言乱语之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏嘘不已吧。不过转念一想，只是因为自己之前的想法太过天真了吧。有些时候，自己还没有本事“造轮子”的时候，何妨不用一下拿来主义呢？只要不是全盘照抄，光copy不动脑筋，也是一种学习吧。
-我接触前端这个领域，想来也才不到一年的时间吧，不能说取得了多大的成就，但是好歹现在两只">
-<meta property="og:image" content="http://wx1.sinaimg.cn/large/7235c1ccgy1fdnurvsvjzj20j60bzmy9.jpg">
-<meta property="og:updated_time" content="2017-03-15T13:38:33.346Z">
+<meta property="og:description" content="发送一个http请求以后，经历过的步骤：
+
+发送一个域名请求以后，如常见的http://www.baidu.com 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的是chrome浏览器，那么输入chrome://net-internals/#dns 然后敲回车就能看到chrome浏览器的dns缓存
+
+搜索操作系统自身的DNS缓存，如果没找到进行">
+<meta property="og:updated_time" content="2017-03-16T02:17:56.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的第一篇博文">
-<meta name="twitter:description" content="胡言乱语之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏嘘不已吧。不过转念一想，只是因为自己之前的想法太过天真了吧。有些时候，自己还没有本事“造轮子”的时候，何妨不用一下拿来主义呢？只要不是全盘照抄，光copy不动脑筋，也是一种学习吧。
-我接触前端这个领域，想来也才不到一年的时间吧，不能说取得了多大的成就，但是好歹现在两只">
-<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/7235c1ccgy1fdnurvsvjzj20j60bzmy9.jpg">
+<meta name="twitter:title" content="http基础知识">
+<meta name="twitter:description" content="发送一个http请求以后，经历过的步骤：
+
+发送一个域名请求以后，如常见的http://www.baidu.com 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的是chrome浏览器，那么输入chrome://net-internals/#dns 然后敲回车就能看到chrome浏览器的dns缓存
+
+搜索操作系统自身的DNS缓存，如果没找到进行">
 
 
 
@@ -143,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/2017/03/04/我的第一篇博文.html"/>
+  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/http基础知识.html"/>
 
 
 
 
 
-  <title> 我的第一篇博文 | 纯爱枫若情的博客 </title>
+  <title> http基础知识 | 纯爱枫若情的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -308,7 +315,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/2017/03/04/我的第一篇博文.html">
+    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/http基础知识.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="纯爱枫若情">
@@ -329,7 +336,7 @@
             
             
               
-                我的第一篇博文
+                http基础知识
               
             
           </h2>
@@ -344,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T12:21:43+08:00">
-                2017-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T09:35:10+08:00">
+                2017-03-16
               </time>
             
 
@@ -367,8 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂文/" itemprop="url" rel="index">
-                    <span itemprop="name">杂文</span>
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
                   </a>
                 </span>
 
@@ -385,8 +392,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/blog/2017/03/04/我的第一篇博文.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/2017/03/04/我的第一篇博文.html" itemprop="commentCount"></span>
+                <a href="/blog/http基础知识.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/http基础知识.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,7 +401,7 @@
 
           
           
-             <span id="/blog/2017/03/04/我的第一篇博文.html" class="leancloud_visitors" data-flag-title="我的第一篇博文">
+             <span id="/blog/http基础知识.html" class="leancloud_visitors" data-flag-title="http基础知识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -423,7 +430,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      1,068
+                      999
                     </span>
               
 
@@ -456,39 +463,33 @@
 
       
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-          
-          
-            <div class="post-gallery-row">
-              <a class="post-gallery-img fancybox"
-                 href="http://wx1.sinaimg.cn/large/7235c1ccgy1fdnurvsvjzj20j60bzmy9.jpg" rel="gallery_cj0bsofj8000mh0j3xgli97c1"
-                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://wx1.sinaimg.cn/large/7235c1ccgy1fdnurvsvjzj20j60bzmy9.jpg" itemprop="contentUrl"/>
-              </a>
-            
-          
-
-          
-          </div>
-        </div>
-      
 
       
-        <h3 id="胡言乱语"><a href="#胡言乱语" class="headerlink" title="胡言乱语"></a>胡言乱语</h3><p>之前一直都有自己搭建一个博客的想法，但是每每想要付诸实践的之时，总是感叹工作量太大了，于是没多久就不了了之了，想来也是令人唏嘘不已吧。不过转念一想，只是因为自己之前的想法太过天真了吧。有些时候，自己还没有本事“造轮子”的时候，何妨不用一下拿来主义呢？只要不是全盘照抄，光copy不动脑筋，也是一种学习吧。</p>
-<p>我接触前端这个领域，想来也才不到一年的时间吧，不能说取得了多大的成就，但是好歹现在两只脚都迈进了前端的大门了吧。想想一年前的这个时候，我还对这些都一无所知，现在想来，好像自己当时都活的浑浑噩噩的，每天过的都没什么动力，拒绝面对现实，压根就不敢去思考该如何面对马上就要来临的毕业季。</p>
-<p>前段时间，找工作的时候，被现实来了重重的一击。我突然明白过来一个道理：“<em>其实最可怕的不是你不如别人，而是蓦然回首，你发现别人都在进步，而你依旧在原地踏步。</em>”。当然并不是说我之前一直都不明白这个道理，只不过是在那个时候，对这句话有了尤为深刻的理解。原来一直以来，我并不优秀，或者说，我曾经好像优秀过。过往的总总不过是过往云烟罢了，现实才是急需要去面对的唯一迫切的事情。人真的只有到了压力逼迫自己的时候，才会进步神速，也许存在那种有着非凡的毅力的人，但是我根本不可能是那种人。所以在那段时间里，只要我一睁开眼，就好像感觉到压力扑面而来，仿佛快要实质化了一般。对我来说，找不到工作，就等同于一个失败的人生。自己曾经所拥有的固执，拥有的高傲，拥有的冷酷，在现实的面包面前，是多么的卑微，多么的微不足道啊。</p>
-<p>之前放弃考研，打算转行当程序员的时候，压根就没有深入的了解过这个行业，更加没有深入的评估过自己的实力，以为好像一切都很简单，好像自己天生就适合干这个，好像自带天赋技能点一样。一切的一切，只有在经历过痛苦，经历过失败以后才明白，原来，<strong>时间</strong>加<strong>勤奋</strong>才等同于天分吧。没有人生来就适合干某一行，没有人生来就在某件事情上点满了技能点，至少对于我等凡夫俗子来说是这样的吧。</p>
-<p>曾经所经历过得一切，现在再怎么哀怨叹息都于事无补，我们要做的只是收拾好心情，重装上阵而已吧。曾经自己卑微过，懦弱过，无助过也堕落过，但是这一切都过去了，该做的是，现在努力奋斗，过好每一天，让悲剧不要再未来重演吧。</p>
-<h3 id="收拾心情"><a href="#收拾心情" class="headerlink" title="收拾心情"></a>收拾心情</h3><p>今天大概花了一天的时间，建好了我人生中自建的第一个博客，还是有点小小的成就感的。以后时常写写博客，抒发一下心情，也记录以下自己生活学习的轨迹吧。</p>
-<h3 id="技术支持"><a href="#技术支持" class="headerlink" title="技术支持"></a>技术支持</h3><ol>
-<li><p>本博客，静态页面是挂载在Github-pages上面的，所以想要像我一样在弄个这个博客的童鞋，可以参考一下<a href="https://help.github.com/categories/github-pages-basics/" title="点击进入github pages介绍页面" target="_blank" rel="external">GitHub-pages</a></p>
+        <p>发送一个http请求以后，经历过的步骤：</p>
+<ol>
+<li><p>发送一个域名请求以后，如常见的<code>http://www.baidu.com</code> 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的是chrome浏览器，那么输入<code>chrome://net-internals/#dns</code> 然后敲回车就能看到chrome浏览器的dns缓存</p>
 </li>
-<li><p>这个博客是参考了博主<a href="http://www.ezlippi.com/" title="点击进入ezlippi博主的博客" target="_blank" rel="external">ezlippi</a>的博客里的<a href="http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html" title="点击进入ezlippi博主的博客文章" target="_blank" rel="external">Jekyll迁移到Hexo搭建个人博客</a>，里面内容写的很详细，如果有兴趣的童鞋可以参考博主的文章</p>
+<li><p>搜索操作系统自身的DNS缓存，如果没找到进行下一步操作</p>
 </li>
-<li><p>当然，这个博客的搭建，离不开<a href="https://hexo.io/zh-cn/" title="点击进入Hexo官网" target="_blank" rel="external">Hexo</a>和<a href="http://theme-next.iissnan.com/" title="点击进入Next主题官网" target="_blank" rel="external">Next</a>的技术支持</p>
+<li><p>读取本地的host文件，windows下就是保存在<code>C:\Windows\System32\drivers\etc\hosts</code> 路径中的这个文件里面，你可以试着将常见域名的ip设置在这个文件之中，省去了dns请求这个阶段，直接通过ip访问网站</p>
+</li>
+<li><p>浏览器发起一个DNS的系统调用，向宽带运营商发起一个DNS请求，然后宽带运营商服务器查看本身缓存，如果找到对应的域名和IP，那么就解析成功，返回对应的IP；如果没有找到dns缓存，运营商服务器会发起一个迭代DNS的解析请求。首先会问根域的服务器，请求对应的域名的ip，根域服务器保存的是顶级域的IP地址，于是返回对应顶级域的IP给宽带运营商服务器；然后宽带运营商服务器拿着这个顶级域的IP，向这个顶级域IP发起DNS解析请求，顶级域保存着对应域名提供商的IP地址，返回给运营商服务器；运营商服务器拿着这个IP，再次发起DNS解析请求，域名提供商服务器接收到请求，返回对应域名的IP；然后运营商服务器把结果返回给操作系统内核，同时缓存在自己的服务器上；操作系统内核拿到IP，返回给浏览器。（这差不多就是在浏览器输入一个网址，到查找到对应IP的全过程）</p>
+</li>
+<li><p>浏览器获得域名对应的IP地址后，发起经典的HTTP“三次握手”，建立连接</p>
+<blockquote>
+<p>第一次<br>第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。<br>第二次<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次<br>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br>注：以上内容引自百度百科<a href="http://baike.baidu.com/link?url=zThAigNNGrOdv7BdGToeZR8ZzAIrNOrE8MP2KW3ssHPIESBcGZmQpSYH9Hn5T2MN-rMjFvvhUEJtyqMAe_2k8GKRE-pN7OS4zhT0bR-7Y7vm5JjO_ODCYX6BUFI7YvTO" title="点击查看详细介绍" target="_blank" rel="external">三次握手</a></p>
+</blockquote>
+</li>
+<li><p>TCP/IP连接建立起来以后，浏览器就可以向服务器发送HTTP请求了，比如说，用HTTP的GET方法请求一个根域里的一个域名，协议可以采取HTTP1.0的一个协议。</p>
+</li>
+<li><p>服务器接收到了请求，根据路径参数，经过后端的处理，将处理结果的数据返回给浏览器。如果请求是一个页面，那么将会把这个页面的html代码返回给浏览器</p>
+</li>
+<li><p>浏览器接收到了服务器返回的html代码，在浏览器解析和渲染这个页面的过程中，html代码中包含的js、css、图片等静态资源一样会通过上述步骤进行请求资源，然后获得对应的数据。</p>
+</li>
+<li><p>浏览器拿到所有的资源，对页面进行渲染，最终将一个完整的页面呈现在用户面前</p>
 </li>
 </ol>
-<h3 id="申明"><a href="#申明" class="headerlink" title="申明"></a>申明</h3><p><em>本博客的素材资源，均来自网络。本博客非商业用途，如果原作者不允许使用，请联系我本人删除。谢谢！</em></p>
+<p>以上只是一个http请求过程的简单理解，真实的http请求的过程，比上面还要复杂。</p>
 
       
     </div>
@@ -512,7 +513,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/杂文/" rel="tag"># 杂文</a>
+            <a href="/tags/http/" rel="tag"># http</a>
           
         </div>
       
@@ -525,8 +526,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/2017/03/03/今天做过的一道js题目解析.html" rel="next" title="今天做过的一道js题目解析">
-                <i class="fa fa-chevron-left"></i> 今天做过的一道js题目解析
+              <a href="/blog/由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考.html" rel="next" title="由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考">
+                <i class="fa fa-chevron-left"></i> 由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考
               </a>
             
           </div>
@@ -535,8 +536,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2017/03/05/hexo常见命令令.html" rel="prev" title="hexo常见命令令">
-                hexo常见命令令 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/http请求的不同方法.html" rel="prev" title="http请求的不同方法">
+                http请求的不同方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,10 +553,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="/blog/2017/03/04/我的第一篇博文.html"
-     data-title="我的第一篇博文"
+        <div class="ds-share flat" data-thread-key="/blog/http基础知识.html"
+     data-title="http基础知识"
      data-content=""
-     data-url="http://www.wuzhiqin.tk//blog/2017/03/04/我的第一篇博文.html">
+     data-url="http://www.wuzhiqin.tk//blog/http基础知识.html">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -585,8 +586,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="/blog/2017/03/04/我的第一篇博文.html"
-           data-title="我的第一篇博文" data-url="http://www.wuzhiqin.tk//blog/2017/03/04/我的第一篇博文.html">
+      <div class="ds-thread" data-thread-key="/blog/http基础知识.html"
+           data-title="http基础知识" data-url="http://www.wuzhiqin.tk//blog/http基础知识.html">
       </div>
     
   </div>
@@ -610,17 +611,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -724,22 +716,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#胡言乱语"><span class="nav-number">1.</span> <span class="nav-text">胡言乱语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收拾心情"><span class="nav-number">2.</span> <span class="nav-text">收拾心情</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#技术支持"><span class="nav-number">3.</span> <span class="nav-text">技术支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#申明"><span class="nav-number">4.</span> <span class="nav-text">申明</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
