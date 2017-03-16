@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-03-14T13:50:52.171Z</updated>
+  <updated>2017-03-16T02:17:56.819Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -14,6 +14,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>http基础知识</title>
+    <link href="http://www.wuzhiqin.tk//blog/2017/03/16/http%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2017/03/16/http基础知识.html</id>
+    <published>2017-03-16T01:35:10.000Z</published>
+    <updated>2017-03-16T02:17:56.819Z</updated>
+    
+    <content type="html"><![CDATA[<p>发送一个http请求以后，经历过的步骤：</p>
+<ol>
+<li><p>发送一个域名请求以后，如常见的<code>http://www.baidu.com</code> 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的是chrome浏览器，那么输入<code>chrome://net-internals/#dns</code> 然后敲回车就能看到chrome浏览器的dns缓存</p>
+</li>
+<li><p>搜索操作系统自身的DNS缓存，如果没找到进行下一步操作</p>
+</li>
+<li><p>读取本地的host文件，windows下就是保存在<code>C:\Windows\System32\drivers\etc\hosts</code> 路径中的这个文件里面，你可以试着将常见域名的ip设置在这个文件之中，省去了dns请求这个阶段，直接通过ip访问网站</p>
+</li>
+<li><p>浏览器发起一个DNS的系统调用，向宽带运营商发起一个DNS请求，然后宽带运营商服务器查看本身缓存，如果找到对应的域名和IP，那么就解析成功，返回对应的IP；如果没有找到dns缓存，运营商服务器会发起一个迭代DNS的解析请求。首先会问根域的服务器，请求对应的域名的ip，根域服务器保存的是顶级域的IP地址，于是返回对应顶级域的IP给宽带运营商服务器；然后宽带运营商服务器拿着这个顶级域的IP，向这个顶级域IP发起DNS解析请求，顶级域保存着对应域名提供商的IP地址，返回给运营商服务器；运营商服务器拿着这个IP，再次发起DNS解析请求，域名提供商服务器接收到请求，返回对应域名的IP；然后运营商服务器把结果返回给操作系统内核，同时缓存在自己的服务器上；操作系统内核拿到IP，返回给浏览器。（这差不多就是在浏览器输入一个网址，到查找到对应IP的全过程）</p>
+</li>
+<li><p>浏览器获得域名对应的IP地址后，发起经典的HTTP“三次握手”，建立连接</p>
+<blockquote>
+<p>第一次<br>第一次握手：建立连接时，客户端发送syn包（syn=j）到服务器，并进入SYN_SENT状态，等待服务器确认；SYN：同步序列编号（Synchronize Sequence Numbers）。<br>第二次<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=j+1），同时自己也发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次<br>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=k+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。<br>注：以上内容引自百度百科<a href="http://baike.baidu.com/link?url=zThAigNNGrOdv7BdGToeZR8ZzAIrNOrE8MP2KW3ssHPIESBcGZmQpSYH9Hn5T2MN-rMjFvvhUEJtyqMAe_2k8GKRE-pN7OS4zhT0bR-7Y7vm5JjO_ODCYX6BUFI7YvTO" title="点击查看详细介绍" target="_blank" rel="external">三次握手</a></p>
+</blockquote>
+</li>
+<li><p>TCP/IP连接建立起来以后，浏览器就可以向服务器发送HTTP请求了，比如说，用HTTP的GET方法请求一个根域里的一个域名，协议可以采取HTTP1.0的一个协议。</p>
+</li>
+<li><p>服务器接收到了请求，根据路径参数，经过后端的处理，将处理结果的数据返回给浏览器。如果请求是一个页面，那么将会把这个页面的html代码返回给浏览器</p>
+</li>
+<li><p>浏览器接收到了服务器返回的html代码，在浏览器解析和渲染这个页面的过程中，html代码中包含的js、css、图片等静态资源一样会通过上述步骤进行请求资源，然后获得对应的数据。</p>
+</li>
+<li><p>浏览器拿到所有的资源，对页面进行渲染，最终将一个完整的页面呈现在用户面前</p>
+</li>
+</ol>
+<p>以上只是一个http请求过程的简单理解，真实的http请求的过程，比上面还要复杂。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;发送一个http请求以后，经历过的步骤：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;发送一个域名请求以后，如常见的&lt;code&gt;http://www.baidu.com&lt;/code&gt; 等，浏览器先会搜索自身的DNS缓存，看一看是否有对应域名的IP，如果没有则进行下一步操作。如果你使用的
+    
+    </summary>
+    
+      <category term="http" scheme="http://www.wuzhiqin.tk/categories/http/"/>
+    
+    
+      <category term="http" scheme="http://www.wuzhiqin.tk/tags/http/"/>
+    
+  </entry>
   
   <entry>
     <title>由JavaScript阶乘函数中的递归算法对arguments.callee属性展开的思考</title>
