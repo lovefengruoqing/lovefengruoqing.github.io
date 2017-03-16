@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-03-16T02:25:44.812Z</updated>
+  <updated>2017-03-16T03:27:38.167Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -20,9 +20,24 @@
     <link href="http://www.wuzhiqin.tk//blog/2017/03/16/http%E8%AF%B7%E6%B1%82%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95.html"/>
     <id>http://www.wuzhiqin.tk//blog/2017/03/16/http请求的不同方法.html</id>
     <published>2017-03-16T02:23:47.000Z</published>
-    <updated>2017-03-16T02:25:44.812Z</updated>
+    <updated>2017-03-16T03:27:38.167Z</updated>
+    
+    <content type="html"><![CDATA[<p>根据HTTP标准，HTTP请求卡可以使用过重请求方法。</p>
+<p>HTTP1.0定义了三种请求方法：GET，POST和HEAD方法。</p>
+<p>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
+<h3 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h3><p>请求指定的页面信息，并返回实体主体。常见的输入网址，打开网页，一般都是采用GET方式来获取页面</p>
+<h3 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h3><p>POST就是向指定的资源去提交数据，例如提交表单或者上传文件等。数据被包含在请求体中，POST请求可能会导致新的资源的建立或者已有的资源的修改。</p>
+<h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p>类似于GET请求，只不过返回的响应中没有具体的内容，用于获取报头</p>
+<h3 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h3><p>允许客户端查看服务器的性能。</p>
+<h3 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h3><p>从客户端向服务器传送的数据取代指定的文档的内容。主要作用是更新指定的数据资源</p>
+<h3 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h3><p>请求服务器删除指定的资源</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;根据HTTP标准，HTTP请求卡可以使用过重请求方法。&lt;/p&gt;
+&lt;p&gt;HTTP1.0定义了三种请求方法：GET，POST和HEAD方法。&lt;/p&gt;
+&lt;p&gt;HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。&lt;/p
     
     </summary>
     
