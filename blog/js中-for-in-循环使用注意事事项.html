@@ -83,7 +83,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript for-in循环" />
 
 
 
@@ -101,12 +101,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="纯爱枫若情的博客">
-<meta property="og:url" content="http://www.wuzhiqin.tk/tags/杂文/index.html">
+<meta name="description" content="最近在学习一本叫做《数据结构与算法JavaScript描述》的书，虽然这本书的质量并不是很高，但是对于我这个并非计算机科班出身的人来说，还算是一本不错的书。我没有学习过数据结构和算法，因此总感觉自己在写JS的过程中好像缺点什么，看别人的程序也看得懂，但是自己写就好像写不出来。写一个模块，不知道需要什么功能，不知道需要什么属性。后来看了这本书，才恍然大悟，原来是这些基本的数据结构，以及算法相关的知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中"for-in"循环使用注意事事项">
+<meta property="og:url" content="http://www.wuzhiqin.tk/blog/js中-for-in-循环使用注意事事项.html">
 <meta property="og:site_name" content="纯爱枫若情的博客">
+<meta property="og:description" content="最近在学习一本叫做《数据结构与算法JavaScript描述》的书，虽然这本书的质量并不是很高，但是对于我这个并非计算机科班出身的人来说，还算是一本不错的书。我没有学习过数据结构和算法，因此总感觉自己在写JS的过程中好像缺点什么，看别人的程序也看得懂，但是自己写就好像写不出来。写一个模块，不知道需要什么功能，不知道需要什么属性。后来看了这本书，才恍然大悟，原来是这些基本的数据结构，以及算法相关的知识">
+<meta property="og:updated_time" content="2017-03-19T07:35:22.704Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="纯爱枫若情的博客">
+<meta name="twitter:title" content="js中"for-in"循环使用注意事事项">
+<meta name="twitter:description" content="最近在学习一本叫做《数据结构与算法JavaScript描述》的书，虽然这本书的质量并不是很高，但是对于我这个并非计算机科班出身的人来说，还算是一本不错的书。我没有学习过数据结构和算法，因此总感觉自己在写JS的过程中好像缺点什么，看别人的程序也看得懂，但是自己写就好像写不出来。写一个模块，不知道需要什么功能，不知道需要什么属性。后来看了这本书，才恍然大悟，原来是这些基本的数据结构，以及算法相关的知识">
 
 
 
@@ -134,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuzhiqin.tk/tags/杂文/"/>
+  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/js中-for-in-循环使用注意事事项.html"/>
 
 
 
 
 
-  <title> 标签: 杂文 | 纯爱枫若情的博客 </title>
+  <title> js中"for-in"循环使用注意事事项 | 纯爱枫若情的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -175,7 +179,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,81 +293,277 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        杂文
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/无可避免的结局.html" itemprop="url">
-              
-                <span itemprop="name">无可避免的结局</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-11T08:03:17+08:00"
-              content="2017-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/blog/我的第一篇博文.html" itemprop="url">
-              
-                <span itemprop="name">我的第一篇博文</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-04T12:21:43+08:00"
-              content="2017-03-04" >
-          03-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/js中-for-in-循环使用注意事事项.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯爱枫若情">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯爱枫若情的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                js中"for-in"循环使用注意事事项
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T14:59:30+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/js中-for-in-循环使用注意事事项.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/js中-for-in-循环使用注意事事项.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/blog/js中-for-in-循环使用注意事事项.html" class="leancloud_visitors" data-flag-title="js中"for-in"循环使用注意事事项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      842
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="阅读时长" }}">
+                      3
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在学习一本叫做<a href="https://github.com/lovefengruoqing/js-dateStructures-algorithms" title="点击前往我的Github查看具体介绍" target="_blank" rel="external">《数据结构与算法JavaScript描述》</a>的书，虽然这本书的质量并不是很高，但是对于我这个并非计算机科班出身的人来说，还算是一本不错的书。我没有学习过数据结构和算法，因此总感觉自己在写JS的过程中好像缺点什么，看别人的程序也看得懂，但是自己写就好像写不出来。写一个模块，不知道需要什么功能，不知道需要什么属性。后来看了这本书，才恍然大悟，原来是这些基本的数据结构，以及算法相关的知识我没学过，因此总是有种无从下手的感觉。</p>
+<p>虽然用JS实现一种算法，并不是一个很好的主意。但是对于我这种C语言学的不精，Java也只是粗劣的涉猎过的人来说，无疑是一个学习数据结构和算法的不错的方式。</p>
+<p>自己亲自构建一个队列，构建一个栈，构建一个列表，构建一个链表等过程，让我对编程有了新的认知，原来我们在写程序的是时候，并不是为了写程序而写程序，我们是带着一定目的性的。我们只是在我们使用的编程语言的基础上，通过我们编写的程序，封装抽象出我们想要的功能出来，然后向外提供一个接口。想想其实我们在做的事情，和构建一门新的更高级的编程语言也差不多了多少了，不过我们写程序的目的，并不是为了构建一门更高级的编程语言。想想，这就是编程的意义吧，通过这个过程，一步步简化操作，化繁为简。</p>
+<p>废话不多说了，今天在学习，写程序的时候，开始写了这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//this.table = new Array(137)</span></div><div class="line">HashTable.prototype.buildChains = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(index <span class="keyword">in</span> <span class="keyword">this</span>.table)&#123;</div><div class="line">		<span class="keyword">this</span>.table[index] =[]</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后发现运行的过程中，死活通过不了，一直报错，最后找到这个地方，才恍然大悟，原来要换成这样才能正确的运行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//this.table = new Array(137)</span></div><div class="line">HashTable.prototype.buildChains = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;<span class="keyword">this</span>.table.length; i++)&#123;</div><div class="line">		<span class="keyword">this</span>.table[i] =[]</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>后来赶紧去查了一个 <code>for-in</code> 使用的规范，原来使用的过程要判断一下是否为空，否则就会抛出程序异常的错误。</p>
+<blockquote>
+<p>定义和用法:<br>for/in 语句用于循环对象属性。<br>循环中的代码每执行一次，就会对数组的元素或者对象的属性进行一次操作。<br>JavaScript 支持不同类型的循环：<br>for - 循环代码块一定的次数<br>for/in - 循环遍历对象的属性<br>while - 当指定的条件为 true 时循环指定的代码块<br>do/while - 同样当指定的条件为 true 时循环指定的代码块<br>注意： 不要使用 for/in 语句来循环数组的索引，你可以使用 for 语句替代。</p>
+</blockquote>
+<p>以上一段话引自<a href="http://www.runoob.com/jsref/jsref-forin.html" title="点击前往" target="_blank" rel="external">http://www.runoob.com/jsref/jsref-forin.html</a></p>
+<p>原来自己一直用错了，一直用来遍历数组，这不是一个很好的用法，还不如用for循环，要么就用forEach这个ES5中添加的方法。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/http请求的不同方法.html" rel="next" title="http请求的不同方法">
+                <i class="fa fa-chevron-left"></i> http请求的不同方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="/blog/js中-for-in-循环使用注意事事项.html"
+     data-title="js中"for-in"循环使用注意事事项"
+     data-content=""
+     data-url="http://www.wuzhiqin.tk//blog/js中-for-in-循环使用注意事事项.html">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
           
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/blog/js中-for-in-循环使用注意事事项.html"
+           data-title="js中"for-in"循环使用注意事事项" data-url="http://www.wuzhiqin.tk//blog/js中-for-in-循环使用注意事事项.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -611,6 +811,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
