@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-03-20T07:26:09.100Z</updated>
+  <updated>2017-03-20T09:25:32.357Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS下git最新版本的安装方法</title>
+    <link href="http://www.wuzhiqin.tk//blog/CentOS%E4%B8%8Bgit%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.html"/>
+    <id>http://www.wuzhiqin.tk//blog/CentOS下git最新版本的安装方法.html</id>
+    <published>2017-03-20T08:46:24.000Z</published>
+    <updated>2017-03-20T09:25:32.357Z</updated>
+    
+    <content type="html"><![CDATA[<p>装完Node.js开发环境以后，同学还想装个最新版的git版本控制软件。</p>
+<p>于是开始用`yum install git’</p>
+<p>装完以后，发现是老版本的，于是上网搜了一下解决方法，看来只能手动编译安装了。</p>
+<p>安装的过程也很麻烦，毕竟要手动编译。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span>源码编译之前，先安装一些依赖：</div><div class="line">yum install  perl cpio curl curl-devel  zlib-devel openssl-develexpat-devel  gettex-devel -y</div><div class="line"></div><div class="line"><span class="regexp">//</span>下载源码包并解压</div><div class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/git/gi</span>t<span class="regexp">/archive/</span>v2.<span class="number">12.0</span>.tar.gz</div><div class="line">tar -zxvf v2.<span class="number">12.0</span>.tar.gz</div><div class="line"></div><div class="line"><span class="regexp">//</span>进入文件夹，开始编译安装</div><div class="line">make configure</div><div class="line">.<span class="regexp">/configure   --prefix=/u</span>sr<span class="regexp">/local/gi</span>t</div><div class="line">make &amp;&amp; make install</div><div class="line"></div><div class="line"><span class="regexp">//</span>发现编译的过程中开始报错，发现缺少依赖</div><div class="line">yum -y install perl-devel</div><div class="line"></div><div class="line"><span class="regexp">//</span>继续上述编译安装过程</div><div class="line"></div><div class="line"><span class="regexp">//</span>发现还是报错，缺少依赖</div><div class="line">yum -y install build-essential tcl8.<span class="number">4</span> tk8.<span class="number">4</span> gettext</div><div class="line"></div><div class="line"><span class="regexp">//</span>继续安装，终于成功了</div><div class="line"></div><div class="line"><span class="regexp">//</span>设置环境变量</div><div class="line">ln <span class="regexp">/usr/</span>local<span class="regexp">/git/</span>bin<span class="regexp">/git /u</span>sr<span class="regexp">/bin/</span></div><div class="line"></div><div class="line"><span class="regexp">//</span>检查是否安装成功</div><div class="line">git --version</div></pre></td></tr></table></figure>
+<p>总结一下吧，大致的安装过成分为以下几个步骤：</p>
+<ol>
+<li><p>安装依赖：<br><code>yum install  perl cpio curl curl-devel  zlib-devel openssl-develexpat-devel  gettex-devel perl-devel build-essential tcl8.4 tk8.4 gettext -y</code></p>
+</li>
+<li><p>下载源码包并解压：<br><code>wget https://github.com/git/git/archive/v2.12.0.tar.gz</code><br><code>tar -zxvf v2.12.0.tar.gz</code></p>
+</li>
+<li><p>开始编译安装：<br><code>make configure</code><br><code>./configure   --prefix=/usr/local/git</code><br><code>make &amp;&amp; make install</code></p>
+</li>
+<li><p>设置环境变量：<br><code>ln /usr/local/git/bin/git /usr/bin/</code></p>
+</li>
+<li><p>检查是否安装成功：<br><code>git --version</code></p>
+</li>
+</ol>
+<p>总的来说，用源码编译安装的方式，比较繁琐，因为你不知道什么地方就出了问题，缺少什么依赖，特别是对于大型的软件来说，有时候编译要几个小时，中途出错了，就前功尽弃了，所以如果能在编译安装之前，找之前编译安装过的人给一份依赖软件列表，先装好依赖，那么就可靠多了。</p>
+<p>对于用源码编译安装的软件，有什么好处，大概就是可控性比较高吧，毕竟装的时候可以选择性的安装想要的功能，如果用rpm包，也许就并没有那么好用了。而且有的软件没有rpm包，就只能自己用源码编译安装了。</p>
+<p>引用知乎某匿名用户的回答：</p>
+<blockquote>
+<p>源码-&gt;二进制文件-&gt;rpm-&gt;安装</p>
+<ol>
+<li>源码编译生成二进制文件</li>
+<li>二进制文件打包成rpm</li>
+<li>rpm安装到系统当中<br>使用别的做好的rpm包源码的版本和编译参数不可控</li>
+</ol>
+</blockquote>
+<p>想看原问题<a href="https://www.zhihu.com/question/21949923" title="点击前往" target="_blank" rel="external">点这里</a></p>
+<p>在安装的过程中，参考了以下文章，有疑问的童鞋可以前去查看原文：</p>
+<ol>
+<li><p><a href="https://yq.aliyun.com/ziliao/43381" title="点击前往" target="_blank" rel="external">Linux（centos） 环境下如何源码编译安装git的教程</a></p>
+</li>
+<li><p><a href="https://blog.slogra.com/post-344.html" title="点击前往" target="_blank" rel="external">解决编译安装git出错(续)</a></p>
+</li>
+<li><p><a href="http://www.linuxidc.com/Linux/2010-11/29624.htm" title="点击前往" target="_blank" rel="external">在Ubuntu下安装git的过程</a></p>
+</li>
+</ol>
+<p>另外：git源码包的下载地址为：<a href="https://github.com/git/git/releases" title="点击前往" target="_blank" rel="external">https://github.com/git/git/releases</a>，选一个你想安装的版本的源码包就行了</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;装完Node.js开发环境以后，同学还想装个最新版的git版本控制软件。&lt;/p&gt;
+&lt;p&gt;于是开始用`yum install git’&lt;/p&gt;
+&lt;p&gt;装完以后，发现是老版本的，于是上网搜了一下解决方法，看来只能手动编译安装了。&lt;/p&gt;
+&lt;p&gt;安装的过程也很麻烦，毕竟要手动编译
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/tags/linux/"/>
+    
+      <category term="centos" scheme="http://www.wuzhiqin.tk/tags/centos/"/>
+    
+      <category term="git" scheme="http://www.wuzhiqin.tk/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux-CentOS-6.6搭建node.js开发环境的过程</title>
