@@ -1,0 +1,1034 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|黑体:300,300italic,400,400italic,700,700italic|微软雅黑:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux node.js centos6.6 mongodb 开发环境的搭建" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="纯爱枫若情的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言最近同学搞了个服务器，自己不太会装node.js的开发环境，于是我主动请缨给他搭建node.js的开发环境，想想自己刚好有个博客，于是就记录下自己的搭建过程吧，以供自己查阅，也为想要自己搭建服务器端node.js开发环境的童鞋门做个参考。
+服务器的配置首先当然是要来检查下服务器的配置了，当然登陆服务器这个步骤就省了吧，相信看到这篇文章的人也不是没有用过Linux的小白了。
+12345//显示服">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-CentOS-6.6搭建node.js开发环境的过程">
+<meta property="og:url" content="http://www.wuzhiqin.tk/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html">
+<meta property="og:site_name" content="纯爱枫若情的博客">
+<meta property="og:description" content="前言最近同学搞了个服务器，自己不太会装node.js的开发环境，于是我主动请缨给他搭建node.js的开发环境，想想自己刚好有个博客，于是就记录下自己的搭建过程吧，以供自己查阅，也为想要自己搭建服务器端node.js开发环境的童鞋门做个参考。
+服务器的配置首先当然是要来检查下服务器的配置了，当然登陆服务器这个步骤就省了吧，相信看到这篇文章的人也不是没有用过Linux的小白了。
+12345//显示服">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/7235c1ccgy1fdtc4ewpoaj20m805zaaa.jpg">
+<meta property="og:updated_time" content="2017-03-20T07:26:09.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-CentOS-6.6搭建node.js开发环境的过程">
+<meta name="twitter:description" content="前言最近同学搞了个服务器，自己不太会装node.js的开发环境，于是我主动请缨给他搭建node.js的开发环境，想想自己刚好有个博客，于是就记录下自己的搭建过程吧，以供自己查阅，也为想要自己搭建服务器端node.js开发环境的童鞋门做个参考。
+服务器的配置首先当然是要来检查下服务器的配置了，当然登陆服务器这个步骤就省了吧，相信看到这篇文章的人也不是没有用过Linux的小白了。
+12345//显示服">
+<meta name="twitter:image" content="http://wx4.sinaimg.cn/large/7235c1ccgy1fdtc4ewpoaj20m805zaaa.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.wuzhiqin.tk/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html"/>
+
+
+
+
+
+  <title> Linux-CentOS-6.6搭建node.js开发环境的过程 | 纯爱枫若情的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fdeb717def3433315dbedb9d5ff5d326";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/lovefengruoqing"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">纯爱枫若情的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">前端新手的小站</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.wuzhiqin.tk/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="纯爱枫若情">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="纯爱枫若情的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linux-CentOS-6.6搭建node.js开发环境的过程
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T11:32:24+08:00">
+                2017-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html" class="leancloud_visitors" data-flag-title="Linux-CentOS-6.6搭建node.js开发环境的过程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      1,614字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="阅读时长" }}">
+                      7分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://wx4.sinaimg.cn/large/7235c1ccgy1fdtc4ewpoaj20m805zaaa.jpg" rel="gallery_cj0hsc12t000czsj3nb0mpf2y"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://wx4.sinaimg.cn/large/7235c1ccgy1fdtc4ewpoaj20m805zaaa.jpg" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>最近同学搞了个服务器，自己不太会装node.js的开发环境，于是我主动请缨给他搭建node.js的开发环境，想想自己刚好有个博客，于是就记录下自己的搭建过程吧，以供自己查阅，也为想要自己搭建服务器端node.js开发环境的童鞋门做个参考。</p>
+<h3 id="服务器的配置"><a href="#服务器的配置" class="headerlink" title="服务器的配置"></a>服务器的配置</h3><p>首先当然是要来检查下服务器的配置了，当然登陆服务器这个步骤就省了吧，相信看到这篇文章的人也不是没有用过Linux的小白了。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//显示服务器硬盘容量</span></div><div class="line">[root@localhost ~]# df -h</div><div class="line">Filesystem      Size  Used Avail Use% Mounted on</div><div class="line">/dev/simfs       <span class="number">12</span>G  <span class="number">652</span>M   <span class="number">12</span>G   <span class="number">6</span>% /</div><div class="line">none            <span class="number">128</span>M     <span class="number">0</span>  <span class="number">128</span>M   <span class="number">0</span>% /dev/shm</div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//显示系统版本</span></div><div class="line">[root@localhost ~]# <span class="keyword">cat</span> /etc/issue</div><div class="line">CentOS release 6.6 (Final)</div><div class="line">Kernel \r <span class="keyword">on</span> <span class="keyword">an</span> \<span class="built_in">m</span></div></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//检查系统是32位的还是64位的</span></div><div class="line">[root@localhost ~]<span class="meta"># getconf LONG_BIT</span></div><div class="line"><span class="number">32</span></div></pre></td></tr></table></figure>
+<h3 id="装wget软件"><a href="#装wget软件" class="headerlink" title="装wget软件"></a>装wget软件</h3><p>检查好系统的相关情况以后，就开始正式进入我们的搭建服务器环境的过程了。</p>
+<p>先装个wget软件，用来直接在命令行下载东西到服务器上，不然手动下载在上传到服务器太麻烦了。</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//采用yum安装的方式安装wget</span></div><div class="line">[root@localhost ~]<span class="meta"># yum install wget -y</span></div></pre></td></tr></table></figure>
+<h3 id="装gcc编译器"><a href="#装gcc编译器" class="headerlink" title="装gcc编译器"></a>装gcc编译器</h3><p>正当准备开始下载node.js源码的时候，突然想起来，编译需要gcc编译器，这小子肯定没装吧，于是，敲下<code>gcc -v</code> 然后回车，一看结果，果然没装</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//依旧采用yum方式安装</span></div><div class="line">[root@localhost ~]<span class="meta"># yum install gcc -y</span></div><div class="line"><span class="comment">//等待一段时间，装好了以后检查下是否正确安装了</span></div><div class="line">[root@localhost ~]<span class="meta"># gcc -v</span></div></pre></td></tr></table></figure>
+<h3 id="开始装node-js"><a href="#开始装node-js" class="headerlink" title="开始装node.js"></a>开始装node.js</h3><p>首先采用<code>mkdir /software</code> 命令，在根目录新建一个文件夹。</p>
+<p>然后<code>cd /software</code> 命令，进入文件夹，习惯性的用<code>ls</code> 检查一下文件夹里有什么东西</p>
+<p>然后，上node.js的官网<a href="https://nodejs.org/en/" title="点击前往" target="_blank" rel="external">https://nodejs.org/en/</a>，进入下载页面<a href="https://nodejs.org/en/download/" title="点击前往" target="_blank" rel="external">https://nodejs.org/en/download/</a>，找到source Code，右键复制其下载链接</p>
+<p>回到我们的命令行</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//在命令行输入下面命令，链接为刚刚复制的源码的下载链接</div><div class="line">[root@localhost software]<span class="comment"># wget https://nodejs.org/dist/v6.10.0/node-v6.10.0.tar.gz</span></div><div class="line"></div><div class="line">//我忐忑的敲下回车，发现惊呆我了，真是秒下啊</div><div class="line">--<span class="number">2017</span>-<span class="number">03</span>-<span class="number">20</span> <span class="number">00</span>:<span class="number">44</span>:<span class="number">29</span>--  https://nodejs.org/dist/v6.<span class="number">10.0</span>/<span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>.tar.gz</div><div class="line">Resolving nodejs.org... <span class="number">2400</span>:cb00:<span class="number">2048</span>:<span class="number">1</span>::<span class="number">6814</span>:<span class="number">172</span>e, <span class="number">2400</span>:cb00:<span class="number">2048</span>:<span class="number">1</span>::<span class="number">6814</span>:<span class="number">162</span>e, <span class="number">104.20</span>.<span class="number">22.46</span>, ...</div><div class="line">Connecting to nodejs.org|<span class="number">2400</span>:cb00:<span class="number">2048</span>:<span class="number">1</span>::<span class="number">6814</span>:<span class="number">172</span>e|:<span class="number">443</span>... connected.</div><div class="line">HTTP request sent, awaiting response... <span class="number">200</span> OK</div><div class="line">Length: <span class="number">26706815</span> (<span class="number">25M</span>) [application/gzip]</div><div class="line">Saving to: `<span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>.tar.gz'</div><div class="line"></div><div class="line"><span class="number">100</span>%[====================================================&gt;] <span class="number">26</span>,<span class="number">706</span>,<span class="number">815</span>  <span class="number">15.5M</span>/s   <span class="keyword">in</span> <span class="number">1.6s</span>    </div><div class="line"></div><div class="line"><span class="number">2017</span>-<span class="number">03</span>-<span class="number">20</span> <span class="number">00</span>:<span class="number">44</span>:<span class="number">31</span> (<span class="number">15.5</span> MB/s) - `<span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>.tar.gz' saved [<span class="number">26706815</span>/<span class="number">26706815</span>]</div><div class="line"></div><div class="line">//用ls检查下</div><div class="line">[root@localhost software]<span class="comment"># ls</span></div><div class="line"><span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>.tar.gz</div><div class="line"></div><div class="line">//解压源码包，解压要等待一会儿</div><div class="line">[root@localhost software]<span class="comment"># tar -xzvf node-v6.10.0.tar.gz</span></div><div class="line"></div><div class="line">//解压成功</div><div class="line">[root@localhost software]<span class="comment"># ls</span></div><div class="line"><span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>  <span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>.tar.gz</div><div class="line"></div><div class="line">// cd到<span class="keyword">node</span><span class="title">-v6</span>.<span class="number">10.0</span>目录</div><div class="line">[root@localhost software]<span class="comment"># cd node-v6.10.0</span></div><div class="line"></div><div class="line">//怀着激动的心情，开始编译（漫长的等待……）</div><div class="line">[root@localhost software]<span class="comment"># ./configure </span></div><div class="line">[root@localhost software]<span class="comment"># make</span></div><div class="line"></div><div class="line">//开始安装</div><div class="line">[root@localhost software]<span class="comment"># make install</span></div></pre></td></tr></table></figure>
+<p>如果上述步骤，你成功了，恭喜你，你已经成功的安装了node.js最新版本。但是很遗憾，我在同学的服务器上一直编译没通过，太多依赖没安装了，懒得给他一个个手动安装了，太耗时间了……于是我放弃了源码的安装，采用一种投机取巧的方式</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">//yum安装EPEL库</div><div class="line">[root@localhost ~]<span class="comment"># yum install epel-release</span></div><div class="line"></div><div class="line">//yum安装<span class="keyword">node</span>.<span class="title">js</span></div><div class="line">[root@localhost ~]<span class="comment"># yum install nodejs -y</span></div><div class="line"></div><div class="line">//检查<span class="keyword">node</span>.<span class="title">js</span>的安装情况，发现版本太低</div><div class="line">[root@localhost ~]<span class="comment"># nodejs -v</span></div><div class="line">v0.<span class="number">10.48</span></div><div class="line"></div><div class="line">//先安装npm包管理工具</div><div class="line">[root@localhost ~]<span class="comment"># yum install npm -y</span></div><div class="line"></div><div class="line">//升级npm到最新版本</div><div class="line">[root@localhost ~]<span class="comment"># npm install -g npm</span></div><div class="line"></div><div class="line">//安装<span class="keyword">node</span>.<span class="title">js</span>版本管理工具</div><div class="line">[root@localhost ~]<span class="comment"># npm install -g n</span></div><div class="line"></div><div class="line">//升级<span class="keyword">node</span>.<span class="title">js</span>到稳定版本</div><div class="line">[root@localhost ~]<span class="comment"># n stable</span></div><div class="line"></div><div class="line">//检查<span class="keyword">node</span>.<span class="title">js</span>版本，发现没有生效</div><div class="line">[root@localhost ~]<span class="comment"># node -v</span></div><div class="line"></div><div class="line">//编辑环境配置文件：</div><div class="line">[root@localhost ~]<span class="comment"># vim ~/.bash_profile</span></div><div class="line"></div><div class="line">//将下面两行代码插入到文件末尾：</div><div class="line">export <span class="attr">N_PREFIX=</span>/opt/<span class="keyword">node</span> <span class="title">#node</span>实际安装位置，我的电脑上是/usr/local/n/versions/<span class="keyword">node</span><span class="title">/</span></div><div class="line">export <span class="attr">PATH=</span>$N_PREFIX/bin:$PATH</div><div class="line"></div><div class="line">//再次执行升级<span class="keyword">node</span>.<span class="title">js</span>到稳定版本的命令</div><div class="line">[root@localhost ~]<span class="comment"># n stable</span></div><div class="line"></div><div class="line">//检查<span class="keyword">node</span>.<span class="title">js</span>版本，安装成功了</div><div class="line">[root@localhost ~]<span class="comment"># node -v</span></div><div class="line">v7.<span class="number">6.0</span></div></pre></td></tr></table></figure>
+<h3 id="安装Mongodb"><a href="#安装Mongodb" class="headerlink" title="安装Mongodb"></a>安装Mongodb</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建一个Mongodb的yum源</span></div><div class="line">[root<span class="meta">@localhost</span> ~] vim <span class="regexp">/etc/</span>yum.repos.d/mongodb-org<span class="number">-3.4</span>.repo</div><div class="line"></div><div class="line"><span class="comment">//将文件内容改成,保存退出</span></div><div class="line">[mongodb-org<span class="number">-3.4</span>]</div><div class="line">name=MongoDB Repository</div><div class="line">baseurl=<span class="string">https:</span><span class="comment">//repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/</span></div><div class="line">gpgcheck=<span class="number">1</span></div><div class="line">enabled=<span class="number">1</span></div><div class="line">gpgkey=<span class="string">https:</span><span class="comment">//www.mongodb.org/static/pgp/server-3.4.asc</span></div><div class="line"></div><div class="line"><span class="comment">//安装Mongodb</span></div><div class="line">[root<span class="meta">@localhost</span> ~] yum install -y mongodb-org</div></pre></td></tr></table></figure>
+<p>如果你的服务器装的是64位系统，那么恭喜你，mongodb就安装成功了，但是很遗憾，我之前没反应过来，同学的这个服务器是32位系统的，结果肯定是安装失败了。</p>
+<p>然后去mongodb官网看了下，发现，原来新版本的没有32位的编译好的版本，无奈只有找了一个2.6版本的32位linux编译好的文件</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/<span class="regexp">/用wget下载</span></div><div class="line">[root@localhost software] wget https:/<span class="regexp">/fastdl.mongodb.org/linux</span><span class="regexp">/mongodb-linux-i686-v2.6-latest.tgz</span></div><div class="line"></div><div class="line">/<span class="regexp">/解压</span></div><div class="line">[root@localhost software] tar -xzvf mongodb-linux-i686-v2.6-latest.tgz</div><div class="line"></div><div class="line">/<span class="regexp">/复制到</span></div><div class="line">[root@localhost software] mkdir /usr<span class="regexp">/local/mongodb</span><span class="regexp">/</span></div><div class="line">[root@localhost software] # cp -r mongodb-linux-i686-v2.6-2017-02-14/* <span class="regexp">/usr/local</span><span class="regexp">/mongodb/</span></div></pre></td></tr></table></figure>
+<p>到了这步mongodb就安装好了，但是现在还不能用，因为并没有添加到环境变量</p>
+<p>于是回到家目录，写了两个脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># start_mongodb.sh</div><div class="line">/usr/local/mongodb/bin/mongod --dbpath=/usr/local/mongodb/data --logpath=/usr/local/mongodb/logs --logappend  --port=27017 --fork</div><div class="line">echo &apos;mongodb started!&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># stop_mongodb.sh</div><div class="line">/usr/local/mongodb/bin/mongod  --shutdown --dbpath /usr/local/mongodb/data/</div><div class="line">echo &apos;mongodb stoped&apos;</div></pre></td></tr></table></figure>
+<p>写完赋与执行权限 <code>chmod +x start_mongodb.sh stop_mongodb.sh</code> ，别忘了在执行之前，执行<code>mkdir /usr/local/mongodb/data</code> 和<code>touch /usr/local/mongodb/logs</code> 命令，前者是用来创建mongodb数据库保存的位置，后者是用来创建日志保存的文件</p>
+<p>对了，为了方便启动<strong>mongo</strong> 管理数据库，在多加上下面一行命令吧</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加mongo到执行环境</span></div><div class="line">[root<span class="meta">@localhost</span> ~] ln <span class="regexp">/usr/</span>local<span class="regexp">/mongodb/</span>bin<span class="regexp">/mongo /</span>usr<span class="regexp">/bin/</span>mongo</div></pre></td></tr></table></figure>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>终于装好了Node.js的服务器开发环境了，虽然最后装的不是同学想要的源码版本的，但是也折腾了许久。当然如果你有兴趣装源码版本的，过程也大同小异，只不过可能装的过程会更坎坷一些吧。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/node-js/" rel="tag"># node.js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/js中-for-in-循环使用注意事项.html" rel="next" title="JS中"for-in"循环使用注意事项">
+                <i class="fa fa-chevron-left"></i> JS中"for-in"循环使用注意事项
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html"
+     data-title="Linux-CentOS-6.6搭建node.js开发环境的过程"
+     data-content=""
+     data-url="http://www.wuzhiqin.tk//blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html"
+           data-title="Linux-CentOS-6.6搭建node.js开发环境的过程" data-url="http://www.wuzhiqin.tk//blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="纯爱枫若情" />
+          <p class="site-author-name" itemprop="name">纯爱枫若情</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/lovefengruoqing" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chun-ai-feng-ruo-qing" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1916125644" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+<iframe frameborder="no" seamless="seamless" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=139774&auto=0&height=66"></iframe>
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器的配置"><span class="nav-number">2.</span> <span class="nav-text">服务器的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装wget软件"><span class="nav-number">3.</span> <span class="nav-text">装wget软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装gcc编译器"><span class="nav-number">4.</span> <span class="nav-text">装gcc编译器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始装node-js"><span class="nav-number">5.</span> <span class="nav-text">开始装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Mongodb"><span class="nav-number">6.</span> <span class="nav-text">安装Mongodb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">7.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">纯爱枫若情</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"lovefengruoqing"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("pj4V1smrVj53xIaPUrITDW6D-gzGzoHsz", "kCkkvXJXVs3BIYXbK4tH2xge");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
