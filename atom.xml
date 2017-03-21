@@ -684,4 +684,83 @@
     
   </entry>
   
+  <entry>
+    <title>mongodb数据库在Linux上的使用</title>
+    <link href="http://www.wuzhiqin.tk//blog/2016%E2%80%8E-12%E2%80%8E-%E2%80%8E20%E2%80%8E-mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9C%A8Linux%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
+    <id>http://www.wuzhiqin.tk//blog/2016‎-12‎-‎20‎-mongodb数据库在Linux上的使用.html</id>
+    <published>2016-12-20T15:06:37.000Z</published>
+    <updated>2017-03-21T06:53:28.074Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="mongodb数据库在Linux上的使用"><a href="#mongodb数据库在Linux上的使用" class="headerlink" title="mongodb数据库在Linux上的使用"></a>mongodb数据库在Linux上的使用</h1><h2 id="一、-mongodb的使用"><a href="#一、-mongodb的使用" class="headerlink" title="一、 mongodb的使用"></a>一、 mongodb的使用</h2><p>###(1)<code>which mongod</code></p>
+<p>此步骤的作用是，检测mongodb是否在电脑上安装成功。</p>
+<p>###(2)<code>mkdir -p /data/db</code><br>新建一个<code>/data/db</code> 文件夹，<code>-p</code>表示递归创建。</p>
+<p>这个文件夹的作用是用来保存数据库的文件。</p>
+<p>###(3)<code>df -lh</code><br>显示磁盘内存占用情况，<code>-h</code>表示人性化显示</p>
+<p>###(4)<code>mongod --dbpath=/data/db --port=27017</code><br>此命令用来启动mongodb服务。</p>
+<p><code>--dbpath</code>参数用来指定数据库保存的路径；<code>--port</code>参数用来指定端口，这个参数也可以不指定，如果没有指定，那么就会默认启用27017端口进行服务。</p>
+<h3 id="5-mongod-dbpath-data-db-port-27017-fork-syslog"><a href="#5-mongod-dbpath-data-db-port-27017-fork-syslog" class="headerlink" title="(5)mongod --dbpath=/data/db --port=27017 --fork --syslog"></a>(5)<code>mongod --dbpath=/data/db --port=27017 --fork --syslog</code></h3><p>此命令是用采用守护进程的方式来启动mongod。</p>
+<p><code>--syslog</code>代表将mongod产生的日志写入系统日志中。</p>
+<h3 id="6-tail-f-var-log-messages"><a href="#6-tail-f-var-log-messages" class="headerlink" title="(6)tail -f /var/log/messages"></a>(6)<code>tail -f /var/log/messages</code></h3><p>此命令用来跟踪系统日志，当有新的日志被写入messages的时候，就会呗打印在终端界面上。</p>
+<h3 id="7-关掉mongodb进程"><a href="#7-关掉mongodb进程" class="headerlink" title="(7)关掉mongodb进程"></a>(7)关掉mongodb进程</h3><p>用<code>mongod --shutdown</code>或者<code>kill 进程端口号</code>两种方式关掉mongodb进程</p>
+<h3 id="8-将mongodb产生的日志写入指定文件夹"><a href="#8-将mongodb产生的日志写入指定文件夹" class="headerlink" title="(8)将mongodb产生的日志写入指定文件夹"></a>(8)将mongodb产生的日志写入指定文件夹</h3><p><code>mongod --dbpath=/data/db --port=27017 --fork --logpath=/var/log/mongod.log</code></p>
+<p>表示将mongodb采用守护进程的方式运行，并且将日志写入指定路径中。</p>
+<h3 id="9-另外在CentOS-7中，还可以采用一种方式启动mongodb程序"><a href="#9-另外在CentOS-7中，还可以采用一种方式启动mongodb程序" class="headerlink" title="(9)另外在CentOS 7中，还可以采用一种方式启动mongodb程序"></a>(9)另外在CentOS 7中，还可以采用一种方式启动mongodb程序</h3><p><code>service mongod start</code> 表示启用mongodb服务</p>
+<p><code>service mongod stop</code>表示终止mongodb服务</p>
+<p><code>service mongod restart</code>表示重启mongodb服务</p>
+<p>要注意的是，此种启动方式是从官网上看到的，不知道默认系统日志会被写入到哪个路径，并且暂时还不知道数据库文件会被保存到哪个路径之中。</p>
+<h2 id="二、mongodb客户端工具的使用"><a href="#二、mongodb客户端工具的使用" class="headerlink" title="二、mongodb客户端工具的使用"></a>二、mongodb客户端工具的使用</h2><h3 id="1-启动的两种方式"><a href="#1-启动的两种方式" class="headerlink" title="(1)启动的两种方式"></a>(1)启动的两种方式</h3><ol>
+<li>第一种方式是直接在命令行上键入<code>mongo</code>命令，即可启动mongodb的客户端工具</li>
+<li>第二种方式是指定ip地址和端口号，如<code>mongo 127.0.0.1:27017</code></li>
+</ol>
+<h3 id="2-显示数据库"><a href="#2-显示数据库" class="headerlink" title="(2)显示数据库"></a>(2)显示数据库</h3><p><code>show dbs</code>命令用来查看当前有哪些数据库</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admin	(<span class="name">empty</span>)</div><div class="line">local	<span class="number">0.000</span>GB</div></pre></td></tr></table></figure>
+<p>这两个数据库，是mongodb默认的数据库。</p>
+<h3 id="3-创建数据库"><a href="#3-创建数据库" class="headerlink" title="(3)创建数据库"></a>(3)创建数据库</h3><p>不需要用专门的命令来创建数据库，采用<code>use example</code>命令就能切换到example数据库，当这个数据库不存在的时候，就会自动被创建。</p>
+<p>但是此时你如果用<code>show dbs</code>命令依旧不能看到这个example数据库，只有当你真正的朝这个数据库中写入数据的时候，这个数据库才会被真正的创建出来</p>
+<h3 id="4-创建集合"><a href="#4-创建集合" class="headerlink" title="(4)创建集合"></a>(4)创建集合</h3><p>使用<code>db.users.insert({&quot;username&quot;: &quot;fengruoqing&quot;});</code> ，创建了一个名为<code>users</code>集合，并为集合中添加第一条数据<code>({&quot;username&quot;: &quot;fengruoqing&quot;})</code></p>
+<h3 id="5-显示集合"><a href="#5-显示集合" class="headerlink" title="(5)显示集合"></a>(5)显示集合</h3><p><code>show collections</code> ，显示当前数据库中的所有集合</p>
+<h3 id="6-查看集合中所有数据的方法"><a href="#6-查看集合中所有数据的方法" class="headerlink" title="(6)查看集合中所有数据的方法"></a>(6)查看集合中所有数据的方法</h3><p><code>db.集合的名字.find()</code> ，就会显示集合中所有的数据</p>
+<p><code>db.集合的名字.find().count()</code> ，此命令用来显示集合中含有的数据数据的条数</p>
+<p><code>db.集合的名字.find({&quot;条件&quot;})</code> ，如果在<code>find()</code>中加入查找条件，就会列出所有符合条件的数据</p>
+<h3 id="7-更新集合中的数据"><a href="#7-更新集合中的数据" class="headerlink" title="(7)更新集合中的数据"></a>(7)更新集合中的数据</h3><p><code>db.集合的名字.update()</code> ，使用<code>update()</code> 方法来更新函数</p>
+<p><code>update({&quot;条件&quot;},{$set: {&quot;更新后的内容&quot;}},{multi: true})</code> ，第三个参数没有，或者为false的时候，默认只修改索引到的第一条数据。<br>而且如果不写<code>$set</code>关键字，与save有同样的效果。</p>
+<h3 id="8-修改集合中的数据"><a href="#8-修改集合中的数据" class="headerlink" title="(8)修改集合中的数据"></a>(8)修改集合中的数据</h3><p><code>db.集合的名字.save({&quot;_id&quot;: ObjectId(&quot;xxxxxxxxxxxxxxx&quot;),&quot;key&quot;:&quot;value&quot;})</code></p>
+<p>使用此命令，完全修改了集合中指定id的数据，直接就覆盖了原来的数据为新的数据</p>
+<h3 id="9-删除集合中的数据"><a href="#9-删除集合中的数据" class="headerlink" title="(9)删除集合中的数据"></a>(9)删除集合中的数据</h3><p><code>db.集合的名字.remove({&#39;key&#39;:&#39;value&#39;}, true)</code></p>
+<p>如果不指定第二个数据<code>true</code> 那么默认会删除所有符合K-V对的数据，如果指定了，只会删除集合里面第一个满足条件的数据</p>
+<p>千万要注意的是，如果<code>remove({})</code> 里面传入了一个空的条件，那么集合中所有的数据都会被删除掉，但是这个删除数据的方法不会删除集合中的索引，只会删除数据。</p>
+<p>如果要想把集合中索引和数据一并删除了，那么就必须使用这个方法<code>db.集合的名字.drop()</code></p>
+<h3 id="10-导入数据"><a href="#10-导入数据" class="headerlink" title="(10)导入数据"></a>(10)导入数据</h3><p><code>mongoimport --db test --collection students --drop --file ./test.json -h 192.168.127.128:27017</code></p>
+<p><code>mongoimport</code> 为导入数据的工具</p>
+<p><code>--db test</code> 指定想要导入的数据库，此处为名为test的数据库</p>
+<p><code>--collection  students</code> 指定想要导入的集合，此处导入名为students的集合中</p>
+<p><code>--drop</code> 表示导入之前，清空这个集合中的数据</p>
+<p><code>--file ./test.json</code> 指定想导入数据库的文件的路径，此处表示当前目录下的test.json文件</p>
+<p><code>-h 192.168.127.128:27017</code> 指定主机和端口号</p>
+<p>注意的是，导入之前要确保数据库和集合的存在性，不然可能会导入失败</p>
+<h3 id="11-筛选数据"><a href="#11-筛选数据" class="headerlink" title="(11)筛选数据"></a>(11)筛选数据</h3><ol>
+<li><p>精确匹配<br><code>db.students.find({&quot;key&quot;:&quot;value&quot;});</code> 精确匹配所有符合条件的数据，而且这个条件可以有多个</p>
+</li>
+<li><p>条件匹配<br><code>db.students.find({&quot;key&quot;: {$gt:&quot;value&quot;}});</code> 此处表示条件匹配，查找数据中“key”的值大于“value”的所有数据</p>
+</li>
+<li><p>或者条件<br><code>db.students.find({$or:[{&quot;key1&quot;:&quot;value2&quot;},{&quot;key2&quot;:&quot;value2&quot;}]});</code> 表示查找符合两个条件之一的数据</p>
+</li>
+<li><p>排序<br><code>db.students.find().sort({&quot;score.语文&quot;:1, &quot;age&quot;:1});</code><br>找到数据以后，加上<code>sort()</code>进行排序，sort函数接受排序条件，“key”里放筛选的类别，然后“value”为1；如果有多个条件，依次按条件进行调整</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;mongodb数据库在Linux上的使用&quot;&gt;&lt;a href=&quot;#mongodb数据库在Linux上的使用&quot; class=&quot;headerlink&quot; title=&quot;mongodb数据库在Linux上的使用&quot;&gt;&lt;/a&gt;mongodb数据库在Linux上的使用&lt;/h1&gt;&lt;
+    
+    </summary>
+    
+      <category term="mongodb" scheme="http://www.wuzhiqin.tk/categories/mongodb/"/>
+    
+    
+      <category term="mongodb" scheme="http://www.wuzhiqin.tk/tags/mongodb/"/>
+    
+  </entry>
+  
 </feed>
