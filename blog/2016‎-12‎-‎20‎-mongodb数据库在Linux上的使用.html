@@ -101,32 +101,29 @@
 
 
 
-<meta name="description" content="mongodb数据库在Linux上的使用一、 mongodb的使用###(1)which mongod
-此步骤的作用是，检测mongodb是否在电脑上安装成功。
-###(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
+<meta name="description" content="mongodb数据库在Linux上的使用一、 mongodb的使用(1)which mongod此步骤的作用是，检测mongodb是否在电脑上安装成功。
+(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
 这个文件夹的作用是用来保存数据库的文件。
-###(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
-###(4)mongod --">
+(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
+(4)mongod --dbpath=/data/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mongodb数据库在Linux上的使用">
 <meta property="og:url" content="http://www.wuzhiqin.tk/blog/2016‎-12‎-‎20‎-mongodb数据库在Linux上的使用.html">
 <meta property="og:site_name" content="纯爱枫若情的博客">
-<meta property="og:description" content="mongodb数据库在Linux上的使用一、 mongodb的使用###(1)which mongod
-此步骤的作用是，检测mongodb是否在电脑上安装成功。
-###(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
+<meta property="og:description" content="mongodb数据库在Linux上的使用一、 mongodb的使用(1)which mongod此步骤的作用是，检测mongodb是否在电脑上安装成功。
+(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
 这个文件夹的作用是用来保存数据库的文件。
-###(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
-###(4)mongod --">
+(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
+(4)mongod --dbpath=/data/">
 <meta property="og:image" content="http://wx3.sinaimg.cn/large/7235c1ccgy1fdugjpyjmtj208k06vjrb.jpg">
-<meta property="og:updated_time" content="2017-03-21T06:53:28.074Z">
+<meta property="og:updated_time" content="2017-03-21T08:01:43.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mongodb数据库在Linux上的使用">
-<meta name="twitter:description" content="mongodb数据库在Linux上的使用一、 mongodb的使用###(1)which mongod
-此步骤的作用是，检测mongodb是否在电脑上安装成功。
-###(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
+<meta name="twitter:description" content="mongodb数据库在Linux上的使用一、 mongodb的使用(1)which mongod此步骤的作用是，检测mongodb是否在电脑上安装成功。
+(2)mkdir -p /data/db新建一个/data/db 文件夹，-p表示递归创建。
 这个文件夹的作用是用来保存数据库的文件。
-###(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
-###(4)mongod --">
+(3)df -lh显示磁盘内存占用情况，-h表示人性化显示
+(4)mongod --dbpath=/data/">
 <meta name="twitter:image" content="http://wx3.sinaimg.cn/large/7235c1ccgy1fdugjpyjmtj208k06vjrb.jpg">
 
 
@@ -483,12 +480,11 @@
       
 
       
-        <h1 id="mongodb数据库在Linux上的使用"><a href="#mongodb数据库在Linux上的使用" class="headerlink" title="mongodb数据库在Linux上的使用"></a>mongodb数据库在Linux上的使用</h1><h2 id="一、-mongodb的使用"><a href="#一、-mongodb的使用" class="headerlink" title="一、 mongodb的使用"></a>一、 mongodb的使用</h2><p>###(1)<code>which mongod</code></p>
-<p>此步骤的作用是，检测mongodb是否在电脑上安装成功。</p>
-<p>###(2)<code>mkdir -p /data/db</code><br>新建一个<code>/data/db</code> 文件夹，<code>-p</code>表示递归创建。</p>
+        <h1 id="mongodb数据库在Linux上的使用"><a href="#mongodb数据库在Linux上的使用" class="headerlink" title="mongodb数据库在Linux上的使用"></a>mongodb数据库在Linux上的使用</h1><h2 id="一、-mongodb的使用"><a href="#一、-mongodb的使用" class="headerlink" title="一、 mongodb的使用"></a>一、 mongodb的使用</h2><h3 id="1-which-mongod"><a href="#1-which-mongod" class="headerlink" title="(1)which mongod"></a>(1)<code>which mongod</code></h3><p>此步骤的作用是，检测mongodb是否在电脑上安装成功。</p>
+<h3 id="2-mkdir-p-data-db"><a href="#2-mkdir-p-data-db" class="headerlink" title="(2)mkdir -p /data/db"></a>(2)<code>mkdir -p /data/db</code></h3><p>新建一个<code>/data/db</code> 文件夹，<code>-p</code>表示递归创建。</p>
 <p>这个文件夹的作用是用来保存数据库的文件。</p>
-<p>###(3)<code>df -lh</code><br>显示磁盘内存占用情况，<code>-h</code>表示人性化显示</p>
-<p>###(4)<code>mongod --dbpath=/data/db --port=27017</code><br>此命令用来启动mongodb服务。</p>
+<h3 id="3-df-lh"><a href="#3-df-lh" class="headerlink" title="(3)df -lh"></a>(3)<code>df -lh</code></h3><p>显示磁盘内存占用情况，<code>-h</code>表示人性化显示</p>
+<h3 id="4-mongod-dbpath-data-db-port-27017"><a href="#4-mongod-dbpath-data-db-port-27017" class="headerlink" title="(4)mongod --dbpath=/data/db --port=27017"></a>(4)<code>mongod --dbpath=/data/db --port=27017</code></h3><p>此命令用来启动mongodb服务。</p>
 <p><code>--dbpath</code>参数用来指定数据库保存的路径；<code>--port</code>参数用来指定端口，这个参数也可以不指定，如果没有指定，那么就会默认启用27017端口进行服务。</p>
 <h3 id="5-mongod-dbpath-data-db-port-27017-fork-syslog"><a href="#5-mongod-dbpath-data-db-port-27017-fork-syslog" class="headerlink" title="(5)mongod --dbpath=/data/db --port=27017 --fork --syslog"></a>(5)<code>mongod --dbpath=/data/db --port=27017 --fork --syslog</code></h3><p>此命令是用采用守护进程的方式来启动mongod。</p>
 <p><code>--syslog</code>代表将mongod产生的日志写入系统日志中。</p>
@@ -781,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mongodb数据库在Linux上的使用"><span class="nav-number">1.</span> <span class="nav-text">mongodb数据库在Linux上的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-mongodb的使用"><span class="nav-number">1.1.</span> <span class="nav-text">一、 mongodb的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-mongod-dbpath-data-db-port-27017-fork-syslog"><span class="nav-number">1.1.1.</span> <span class="nav-text">(5)mongod --dbpath=/data/db --port=27017 --fork --syslog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-tail-f-var-log-messages"><span class="nav-number">1.1.2.</span> <span class="nav-text">(6)tail -f /var/log/messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-关掉mongodb进程"><span class="nav-number">1.1.3.</span> <span class="nav-text">(7)关掉mongodb进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-将mongodb产生的日志写入指定文件夹"><span class="nav-number">1.1.4.</span> <span class="nav-text">(8)将mongodb产生的日志写入指定文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-另外在CentOS-7中，还可以采用一种方式启动mongodb程序"><span class="nav-number">1.1.5.</span> <span class="nav-text">(9)另外在CentOS 7中，还可以采用一种方式启动mongodb程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、mongodb客户端工具的使用"><span class="nav-number">1.2.</span> <span class="nav-text">二、mongodb客户端工具的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-启动的两种方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1)启动的两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-显示数据库"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2)显示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建数据库"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3)创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建集合"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)创建集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-显示集合"><span class="nav-number">1.2.5.</span> <span class="nav-text">(5)显示集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查看集合中所有数据的方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">(6)查看集合中所有数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-更新集合中的数据"><span class="nav-number">1.2.7.</span> <span class="nav-text">(7)更新集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-修改集合中的数据"><span class="nav-number">1.2.8.</span> <span class="nav-text">(8)修改集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除集合中的数据"><span class="nav-number">1.2.9.</span> <span class="nav-text">(9)删除集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-导入数据"><span class="nav-number">1.2.10.</span> <span class="nav-text">(10)导入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-筛选数据"><span class="nav-number">1.2.11.</span> <span class="nav-text">(11)筛选数据</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mongodb数据库在Linux上的使用"><span class="nav-number">1.</span> <span class="nav-text">mongodb数据库在Linux上的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-mongodb的使用"><span class="nav-number">1.1.</span> <span class="nav-text">一、 mongodb的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-which-mongod"><span class="nav-number">1.1.1.</span> <span class="nav-text">(1)which mongod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-mkdir-p-data-db"><span class="nav-number">1.1.2.</span> <span class="nav-text">(2)mkdir -p /data/db</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-df-lh"><span class="nav-number">1.1.3.</span> <span class="nav-text">(3)df -lh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-mongod-dbpath-data-db-port-27017"><span class="nav-number">1.1.4.</span> <span class="nav-text">(4)mongod --dbpath=/data/db --port=27017</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-mongod-dbpath-data-db-port-27017-fork-syslog"><span class="nav-number">1.1.5.</span> <span class="nav-text">(5)mongod --dbpath=/data/db --port=27017 --fork --syslog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-tail-f-var-log-messages"><span class="nav-number">1.1.6.</span> <span class="nav-text">(6)tail -f /var/log/messages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-关掉mongodb进程"><span class="nav-number">1.1.7.</span> <span class="nav-text">(7)关掉mongodb进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-将mongodb产生的日志写入指定文件夹"><span class="nav-number">1.1.8.</span> <span class="nav-text">(8)将mongodb产生的日志写入指定文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-另外在CentOS-7中，还可以采用一种方式启动mongodb程序"><span class="nav-number">1.1.9.</span> <span class="nav-text">(9)另外在CentOS 7中，还可以采用一种方式启动mongodb程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、mongodb客户端工具的使用"><span class="nav-number">1.2.</span> <span class="nav-text">二、mongodb客户端工具的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-启动的两种方式"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1)启动的两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-显示数据库"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2)显示数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建数据库"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3)创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建集合"><span class="nav-number">1.2.4.</span> <span class="nav-text">(4)创建集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-显示集合"><span class="nav-number">1.2.5.</span> <span class="nav-text">(5)显示集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-查看集合中所有数据的方法"><span class="nav-number">1.2.6.</span> <span class="nav-text">(6)查看集合中所有数据的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-更新集合中的数据"><span class="nav-number">1.2.7.</span> <span class="nav-text">(7)更新集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-修改集合中的数据"><span class="nav-number">1.2.8.</span> <span class="nav-text">(8)修改集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除集合中的数据"><span class="nav-number">1.2.9.</span> <span class="nav-text">(9)删除集合中的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-导入数据"><span class="nav-number">1.2.10.</span> <span class="nav-text">(10)导入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-筛选数据"><span class="nav-number">1.2.11.</span> <span class="nav-text">(11)筛选数据</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
