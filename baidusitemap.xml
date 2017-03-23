@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://www.wuzhiqin.tk//blog/XMLHttpRequest%E5%AF%B9%E8%B1%A1.html</loc>
+    <lastmod>2017-03-23T09:56:04.881Z</lastmod>
+    <data>
+        <display>
+        <title>XMLHttpRequest对象</title>
+        <pubTime>2017-03-22T15:32:02.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>XHR</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://www.wuzhiqin.tk/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.wuzhiqin.tk//blog/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4.html</loc>
+    <lastmod>2017-03-22T04:49:26.840Z</lastmod>
+    <data>
+        <display>
+        <title>hexo常见命令</title>
+        <pubTime>2017-03-05T06:08:26.000Z</pubTime>
+        
+        <tag>笔记</tag>
+         
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://www.wuzhiqin.tk/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.wuzhiqin.tk//blog/2016%E2%80%8E-12%E2%80%8E-%E2%80%8E20%E2%80%8E-mongodb%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9C%A8Linux%E4%B8%8A%E7%9A%84%E4%BD%BF%E7%94%A8.html</loc>
     <lastmod>2017-03-21T08:01:43.100Z</lastmod>
     <data>
@@ -232,28 +276,6 @@
            
              
               <breadCrumb title="sass" url="http://www.wuzhiqin.tk/categories/sass/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.wuzhiqin.tk//blog/hexo%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E4%BB%A4.html</loc>
-    <lastmod>2017-03-07T07:09:42.269Z</lastmod>
-    <data>
-        <display>
-        <title>hexo常见命令令</title>
-        <pubTime>2017-03-05T06:08:26.000Z</pubTime>
-        
-        <tag>笔记</tag>
-         
-        <tag>hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="http://www.wuzhiqin.tk/categories/hexo/"/>
           
         </display>
     </data>
