@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-04-01T16:27:37.239Z</updated>
+  <updated>2017-04-09T07:20:51.005Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux玩的就是耐心</title>
+    <link href="http://www.wuzhiqin.tk//blog/Linux%E7%8E%A9%E7%9A%84%E5%B0%B1%E6%98%AF%E8%80%90%E5%BF%83.html"/>
+    <id>http://www.wuzhiqin.tk//blog/Linux玩的就是耐心.html</id>
+    <published>2017-04-09T06:42:28.000Z</published>
+    <updated>2017-04-09T07:20:51.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>去年有一段时间在学习Linux的时候，在折腾了许久的虚拟机之后，历经坎坷波折的装了一个Linux和Win7双系统，装上以后发现还不如用Windows来着方便。一是因为手边就这么一台电脑，学校里一直要处理各种文件必须所以还是得用office办公软件；二来也是最重要的原因是，学校里一直用拨号上网，用Linux由于缺乏拨号的客户端软件，根本上不了网，对于一台上不了网的计算机，我想用起来也不太方便吧。于是体验了一段时间以后，就很久都没用了，还是继续用回我的虚拟机吧，好歹能愉快的联网使用。</p>
+<p>中间由于电脑中了病毒，重装了Windows系统，前段时间，突然又想打开电脑上的CentOS系统玩玩了，却发现进不去了，画面一直停留光标闪烁的界面。当时也没太在意，毕竟也不急着用，然后就搁置了下来，不能用就不能用吧，不管了。</p>
+<p>但是最近在看数据结构，想着还是用电脑敲一敲代码吧，又不想用Windows上的IDE，也不想用虚拟机，于是打算耐心的修复以下Linux的启动问题。</p>
+<p>以下做一个修复过程的记录，为以后碰到同样的问题作参考吧。</p>
+<p>当然碰到这种问题，免不了的是要用搜索引擎的，于是乎我就搜索了以下相关问题，找到一些感觉比较靠谱的，就开始逐个试验了。</p>
+<h3 id="EasyBSD软件"><a href="#EasyBSD软件" class="headerlink" title="EasyBSD软件"></a>EasyBSD软件</h3><p>一开始，我以为是我用的Windows下的EasyBSD这个软件的设置问题，于是我又重新加载了几个Linux启动项，发现都启动不了，甚至有些还进入了grub命令行以及grub rescue命令行。当时不明白，后来回忆起来才发现，原来这个grub命令行才是你修复启动引导程序的关键。</p>
+<h3 id="grub命令行"><a href="#grub命令行" class="headerlink" title="grub命令行"></a>grub命令行</h3><p>由于我装的是CentOS7的64位系统，因此网上很多教程都不太适合我，但是通过grub命令行，我还是成功的进入了Linux系统，发现原来我的Linux系统还是好的，只是引导程序被破坏掉了。</p>
+<p>具体的方法是：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 用tab补全命令找到你的Linux系统安装在硬盘上的位置，然后用下面的命令</span></div><div class="line">root (hd0,<span class="number">6</span>)    <span class="comment">//我的硬盘编号是hd0，6代表着我的Linux安装在硬盘的位置吧</span></div><div class="line"></div><div class="line"><span class="comment">// 2. 加载内核，以下两个命令都可以，省略号部分为省略的UUID或者文件名后缀</span></div><div class="line">kernel /vmlinuz…… root=UUID=……  <span class="comment">//dm-1的uuid</span></div><div class="line">kernel /vmlin…… root=/dev/dm<span class="number">-1</span>  <span class="comment">//我的dm-1是存储内核的位置</span></div><div class="line"></div><div class="line"><span class="comment">// 3. 挂载的一个临时根文件系统</span></div><div class="line">initrd /inita…….img     <span class="comment">//省略号为省略的文件后缀名</span></div><div class="line"></div><div class="line"><span class="comment">// 4. 启动</span></div><div class="line">boot</div></pre></td></tr></table></figure>
+<p>在上面的过程中，你可以慢慢的用tab试出正确的组合出来，反正你没有填入正确的命令，也不会造成什么恶劣的影响，无非就是不能进入系统而已。所以花费的只是你的时间和一点点精力而已。还好我成功的试出来了正确的组合，然后进入了系统。</p>
+<h3 id="修复grub正常启动"><a href="#修复grub正常启动" class="headerlink" title="修复grub正常启动"></a>修复grub正常启动</h3><p>但是进入了系统还没完呢，别高兴太早了，不信你reboot一下，接下来你还是会进入grub命令行模式中。这时候就要重新配置以下Linux中的grub引导文件了。</p>
+<p>先说结论吧，以下就是grub2中的修复引导的过程：(当然全程最好以root用户的身份完成，不然sudo起来麻烦死你)</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 重新生成grub.cfg文件</span></div><div class="line">grub2-mkconfig -o <span class="meta-keyword">/boot/</span>grub2/grub.cfg</div><div class="line"></div><div class="line"><span class="comment">// 2. 安装的硬盘中（个人理解，不知道专业术语具体是什么）</span></div><div class="line">grub2-install <span class="meta-keyword">/dev/</span>sda</div></pre></td></tr></table></figure>
+<p>执行完上面的操作以后，再重启，就能正常的进入Linux系统了。</p>
+<p>但是我所经历的，远比敲入以上两行命令更坎坷。因为网上的很多教程都不是针对grub2的，都是针对grub的，因此有时候，你发现怎么修复的过程中很多命令没有呢？甚至后来连自己手动写一个grub.cfg都试过了，还是没用，幸好后来慢慢试出来以上两行针对grub2的命令，如果你也是用的grub2，用这个绝对没错的。</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>以上就是我修复CentOS 7版本的Linux的引导程序grub的过程，过程是不是很简单，但是就是一遍遍的尝试，很糟心。由于Linux版本众多，你不得不逐个去试出适合你系统的方案，这一点还是比较坑人的。想玩Linux，就准备好折腾吧。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;去年有一段时间在学习Linux的时候，在折腾了许久的虚拟机之后，历经坎坷波折的装了一个Linux和Win7双系统，装上以后发现还不如用Windows来着方便。一是因为手边就这么一台电脑，学校里一直要处理各种文件必须所以还是得用office办公软件；二来也是最重要的原因是，学
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次失败的面试上机体验</title>
