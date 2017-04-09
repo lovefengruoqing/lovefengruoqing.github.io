@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-04-09T07:27:00.669Z</updated>
+  <updated>2017-04-09T09:18:52.178Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux和Windows双系统下奇葩的问题</title>
+    <link href="http://www.wuzhiqin.tk//blog/Linux%E5%92%8CWindows%E5%8F%8C%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%A5%87%E8%91%A9%E7%9A%84%E9%97%AE%E9%A2%98.html"/>
+    <id>http://www.wuzhiqin.tk//blog/Linux和Windows双系统下奇葩的问题.html</id>
+    <published>2017-04-09T09:05:43.000Z</published>
+    <updated>2017-04-09T09:18:52.178Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="插上耳机没声音"><a href="#插上耳机没声音" class="headerlink" title="插上耳机没声音"></a>插上耳机没声音</h3><p>不知道是否有装过Linux和Windows双系统的同学，碰到过同样的问题，反正我是碰到了。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">背景：</div><div class="line">操作系统：Windows <span class="number">7</span>系统和CentOS <span class="number">7</span>系统</div><div class="line">电脑：华硕A85v</div></pre></td></tr></table></figure>
+<p>刚才使用Windows的时候，发现电脑插上耳机没声音了。当时我以为是耳机坏了，于是连忙拿出手机试了一试，发现耳机并没有坏。</p>
+<p>后来我又怀疑是电脑驱动没装好，于是我又卸载了声卡的驱动，重新装了一个官方的驱动，发现还是没作用。后来我上网查了很久，有很多奇怪的解决方案，但是试了以后，发现问题依旧存在。就在我准备放弃的时候，我突然想起来，为什么不试试在Linux系统之中有没有声音呢。</p>
+<p>于是我怀着忐忑的心情，进入了Linux系统，我发现耳机居然是有声音的！只是之前耳机的声音一直是静音的，但是我拔了耳机，发现外放的声音和耳机插上去的声音并不是同步的。这让我联想到了安卓手机，插上耳机和不插耳机，居然不共享同一个声音控制系统，坑爹啊，有木有！</p>
+<p>于是我想，肯定是我之前把耳机的声音设置为静音，影响了Windows下耳机的表现。于是我将耳机的声音开到最大，然后重启进入Windows，发现熟悉的声音又回来了。</p>
+<p>此刻我的心情，真的不知道是该悲伤还是该欢喜。没想到装个双系统还会出现这个问题，太奇葩了！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;插上耳机没声音&quot;&gt;&lt;a href=&quot;#插上耳机没声音&quot; class=&quot;headerlink&quot; title=&quot;插上耳机没声音&quot;&gt;&lt;/a&gt;插上耳机没声音&lt;/h3&gt;&lt;p&gt;不知道是否有装过Linux和Windows双系统的同学，碰到过同样的问题，反正我是碰到了。&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://www.wuzhiqin.tk/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux玩的就是耐心</title>
