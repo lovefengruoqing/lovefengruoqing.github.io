@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.wuzhiqin.tk/"/>
-  <updated>2017-04-09T09:18:52.178Z</updated>
+  <updated>2017-05-18T11:02:39.499Z</updated>
   <id>http://www.wuzhiqin.tk/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手动制作美国大片mp3+lrc</title>
+    <link href="http://www.wuzhiqin.tk//blog/%E6%89%8B%E5%8A%A8%E5%88%B6%E4%BD%9C%E7%BE%8E%E5%9B%BD%E5%A4%A7%E7%89%87mp3+lrc.html"/>
+    <id>http://www.wuzhiqin.tk//blog/手动制作美国大片mp3+lrc.html</id>
+    <published>2017-05-18T08:46:47.000Z</published>
+    <updated>2017-05-18T11:02:39.499Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一直以来都很想学好英语，无奈以前一直没有耐心，也没有恒心和毅力坚持下去，每每总是三天打鱼两天晒网，结果可想而知了。以前也尝试过很多不同的办法，比如通过背单词来增加自己的词汇量的方法，但是对于我这种记忆力着实一般的人来说，简直太煎熬了，貌似我从来没坚持过一个月以上；比如通过看英文视频的方式，虽然一直以来我都坚持看着好莱坞电影，甚至于也会涉猎一些美剧，但是一直都是对着中文字幕看的，虽然看了很多，但是英语水平依旧在原地踏步；比如通过听写文章的方式，这种方式虽然提高很快，也挺有作用，但是无奈，简直太难熬了，对我这种没有耐心的人来说，简直太难熬。</p>
+<p>后来听人说，可以把好莱坞电影或者美剧转成mp3放手机里听，我一想，这种方式好像不错，我用了一段时间以后，又发现了一些问题。对于剧情早就烂熟于心了，但是想提高自己的英文水平，肯定得致力于把每句话都听清楚啊，但是发现无论听了多久还是做不到，后来一想，是缺少一份电影的英文剧本。但是总不能一边听一遍手动找听到哪句台词了吧，这也太麻烦了。但是如果能够把台词转成lrc歌词，然后一边听一边看歌词不就很完美了。虽然想法很好，但是实现起来却并不容易，因为并没有现成的软件提供这种功能给你，你只能自己想办法了。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>终于，摸索了很久以后，我想出了一个非常好的方法，可以完整的实现这一过程，完美从看视频，转换到听音频看原音字幕。首先想要实现这一过程，肯定有一些必不可少的软件支持了，以下是几类软件，仅供参考：</p>
+<ol>
+<li>电影资源（这个就不必说了，没有资源就更别谈把资源转换成音频了）</li>
+<li>音频转换软件（这个我用的是qq影音，我觉得这是腾讯少有的良心产品）</li>
+<li>对应电影的英文字幕（推荐<a href="https://subscene.com/" target="_blank" rel="external">Subscene网站</a>）</li>
+<li><a href="http://www.crintsoft.com/download/" target="_blank" rel="external">MiniLyrics软件</a>（用来将字母转换成lrc文件）</li>
+<li>Windows Media player(Windows自带的音乐播放器)</li>
+<li>网易云音乐（ios系统推荐，因为歌词无法导入自带的播放器，用网易云音乐的云盘服务正好可以克服这个缺点）</li>
+</ol>
+<h2 id="详细的步骤"><a href="#详细的步骤" class="headerlink" title="详细的步骤"></a>详细的步骤</h2><h3 id="1-电影资源"><a href="#1-电影资源" class="headerlink" title="1.电影资源"></a>1.电影资源</h3><p>这个就不用详细介绍了，如果你连电影资源都不会找，说明这个教程不适合你的level。</p>
+<h3 id="2-音频转换软件"><a href="#2-音频转换软件" class="headerlink" title="2.音频转换软件"></a>2.音频转换软件</h3><p>此处我用的是qq影音，这是一款腾讯出品的软件，少见的良心软件，之所以用这个，是因为比较顺手，而且这个软件本身也挺小巧，不像那些专业的软件那么大，用起来比较轻巧。</p>
+<p>具体步骤就不演示了，很简单，打开视频，然后左下角有个工具箱图标，点开有很多小工具，都很好用，选择转换选项，直接转换成音频就行了。</p>
+<h3 id="3-下载字幕"><a href="#3-下载字幕" class="headerlink" title="3.下载字幕"></a>3.下载字幕</h3><p>这一步也没什么好介绍的，没什么难度，就是一个外文网站，上面下字母很方便，实在看不懂可以找一个翻译网页的浏览器插件，不过话说回来，如果这都看不懂，也没有学好英语的决心吧。</p>
+<h3 id="4-MiniLyrics软件"><a href="#4-MiniLyrics软件" class="headerlink" title="4.MiniLyrics软件"></a>4.MiniLyrics软件</h3><p>这是一款神器软件，神奇在哪儿呢，自己下下来就知道了，下面还是先贴段官网的介绍在下面吧</p>
+<blockquote>
+<p><strong>Display lyrics for your favorite music! Free!</strong><br>Lyrics plugin software for iTunes, Windows Media Player, Winamp, etc. You needn’t change the way of enjoying music.<br>Display scrolling lyrics, you can follow along with the artist and catch every word.<br>Automatically search and download lyrics.<br>Huge lyrics database, and it is expanding every day.<br>Download and save lyrics in your song files, you can view these lyrics on your iPod or iPhone.<br>Amazing translucency skins.<br>Cross-platform, support Windows, Mac and Android.</p>
+</blockquote>
+<p>这个网站貌似需要搭个梯子才能进去，如果实在不会下的人可以给我发<a href="mailto:wuzhiqin@yahoo.com" target="_blank" rel="external">email</a>。</p>
+<h3 id="5-Windows-Media-player"><a href="#5-Windows-Media-player" class="headerlink" title="5.Windows Media player"></a>5.Windows Media player</h3><p>这款软件，用Windows的人都不陌生吧。这是关键的步骤，我会在下面详细的介绍操作步骤。</p>
+<p>a.首先打开MiniLyrics软件，界面如下所示，安装相应播放器的插件</p>
+<p><img src="http://wx1.sinaimg.cn/large/7235c1ccgy1ffpp6fk6smj20hu0bpwga.jpg" alt="img"></p>
+<p>b.用Windows Media player打开转换好的音频，然后你会发现对应的插件会出现，如下图</p>
+<p><img src="http://wx3.sinaimg.cn/large/7235c1ccgy1ffppdsda96j20kr0d3wh0.jpg" alt="img"></p>
+<p>c.选择字幕加载，具体操作步骤</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">右键点击歌词插件主屏</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">搜索歌词</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">更多</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">弹出的界面选择下载好的字母文件</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">确定</span></div></pre></td></tr></table></figure>
+<p>然后你就会发现歌词开始加载起来了，如下图</p>
+<p><img src="http://wx4.sinaimg.cn/large/7235c1ccgy1ffppj1xi9ej20pj0d0q7p.jpg" alt="img"></p>
+<p>d.另存为歌词文件</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">歌词</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">歌词另存为</span><span class="literal">-</span><span class="literal">-</span>&gt;<span class="comment">保存</span></div></pre></td></tr></table></figure>
+<p>然后就有一份歌词新鲜出炉了，有没有点小惊喜呢</p>
+<h3 id="6-网易云音乐"><a href="#6-网易云音乐" class="headerlink" title="6.网易云音乐"></a>6.网易云音乐</h3><p>因为本人用的ios，因此无法使用将歌词和音频同时保存在一个文件夹里的方式来显示本地歌词。之前使用过itunes的内嵌歌词，但是不支持电影字幕这么长的文件。因此我想到一个办法，通过网易云音乐的云盘服务来实现添加本地歌词的服务。</p>
+<p>先将lrc和转换的音频文件存放在一个文件夹里，保存为相同的文件名，然后通过音乐云盘的上传服务上传本地音频。等上传完成以后，你将音频从云盘下载到你的手机里，然后你就会发现，歌词也过来了。</p>
+<p><img src="http://wx4.sinaimg.cn/large/7235c1ccgy1ffppvnz9chj20ku112wox.jpg" alt="img"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上就是，制作一份美国大片音频+lrc歌词的全部步骤，如果你也希望通过这种方式学英语，希望能够对你有所帮助。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      手动制作没过大片音频，并配上lrc歌词
+    
+    </summary>
+    
+      <category term="学习" scheme="http://www.wuzhiqin.tk/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="学习" scheme="http://www.wuzhiqin.tk/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux和Windows双系统下奇葩的问题</title>
