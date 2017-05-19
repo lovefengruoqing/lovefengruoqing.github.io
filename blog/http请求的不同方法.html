@@ -135,7 +135,7 @@ POSTPOST就是向指定的资源去提交数据，例如提交表单">
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -389,16 +389,6 @@ POSTPOST就是向指定的资源去提交数据，例如提交表单">
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/blog/http请求的不同方法.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="/blog/http请求的不同方法.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -536,25 +526,6 @@ POSTPOST就是向指定的资源去提交数据，例如提交表单">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="/blog/http请求的不同方法.html"
-     data-title="http请求的不同方法"
-     data-content=""
-     data-url="http://www.wuzhiqin.tk//blog/http请求的不同方法.html">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -562,16 +533,24 @@ POSTPOST就是向指定的资源去提交数据，例如提交表单">
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
   <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="/blog/http请求的不同方法.html"
-           data-title="http请求的不同方法" data-url="http://www.wuzhiqin.tk//blog/http请求的不同方法.html">
-      </div>
+    <div id="container"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+    var gitment = new Gitment({
+      id: 'location.href', // 可选。默认为 location.href
+      owner: 'lovefengruoqing',
+      repo: 'https://github.com/lovefengruoqing/blog',
+      oauth: {
+        client_id: '8185aee0b569876fc23d',
+        client_secret: 'a9c8151c9894be93e8952e2fd84e6b5717a59916',
+      },
+    })
+    gitment.render('container')
+    </script>
     
   </div>
 
@@ -845,39 +824,32 @@ POSTPOST就是向指定的资源去提交数据，例如提交表单">
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lovefengruoqing"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 

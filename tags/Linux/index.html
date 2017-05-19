@@ -103,7 +103,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="纯爱枫若情的博客">
-<meta property="og:url" content="http://www.wuzhiqin.tk/tags/Linux/index.html">
+<meta property="og:url" content="http://www.wuzhiqin.tk/tags/linux/index.html">
 <meta property="og:site_name" content="纯爱枫若情的博客">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="纯爱枫若情的博客">
@@ -119,7 +119,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
+      userId: 'undefined',
       author: '博主'
     },
     algolia: {
@@ -134,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://www.wuzhiqin.tk/tags/Linux/"/>
+  <link rel="canonical" href="http://www.wuzhiqin.tk/tags/linux/"/>
 
 
 
 
 
-  <title> 标签: Linux | 纯爱枫若情的博客 </title>
+  <title> 标签: linux | 纯爱枫若情的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +294,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        Linux
+        linux
         <small>标签</small>
       </h2>
     </div>
@@ -307,9 +307,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/blog/Linux-CentOS-6-6搭建node-js开发环境的过程.html" itemprop="url">
+            <a class="post-title-link" href="/blog/Linux和Windows双系统下奇葩的问题.html" itemprop="url">
               
-                <span itemprop="name">Linux-CentOS-6.6搭建node.js开发环境的过程</span>
+                <span itemprop="name">Linux和Windows双系统下奇葩的问题</span>
               
             </a>
         
@@ -317,7 +317,63 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-20T11:32:24+08:00"
+              datetime="2017-04-09T17:05:43+08:00"
+              content="2017-04-09" >
+          04-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/Linux玩的就是耐心.html" itemprop="url">
+              
+                <span itemprop="name">Linux玩的就是耐心</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-04-09T14:42:28+08:00"
+              content="2017-04-09" >
+          04-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/blog/CentOS下git最新版本的安装方法.html" itemprop="url">
+              
+                <span itemprop="name">CentOS下git最新版本的安装方法</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-03-20T16:46:24+08:00"
               content="2017-03-20" >
           03-20
         </time>
@@ -579,39 +635,32 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"lovefengruoqing"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
@@ -687,58 +736,6 @@
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
-
-  
-
-  
-
-
-  
-
-</body>
-</html>
-nsole.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
